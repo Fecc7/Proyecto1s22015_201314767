@@ -1,5 +1,9 @@
 package Administrador;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+
 public final class ArbolAVL {
 
     Nodo raiz=null;
@@ -24,7 +28,7 @@ public final class ArbolAVL {
     //System.out.println("lllllllllllllllllllllllllll"+Buscar(getRaiz(),"j"));
     //this.setRaiz(Eliminar(getRaiz(),"c"));
     //this.setRaiz(EquilibrarTrasEliminar(getRaiz(),"c"));
-    System.out.println(RecorrerPreOrden(getRaiz(),null));
+    //System.out.println(CodigoGrapvhiz(getRaiz(),null));
     }    
 
     public Nodo getRaiz() {
@@ -264,5 +268,73 @@ public final class ArbolAVL {
     public void EliminarAdministrador(String correo){
     this.setRaiz(Eliminar(getRaiz(),correo));
     this.setRaiz(EquilibrarTrasEliminar(getRaiz(),correo));
+    }
+    
+    public String CodigoGrapvhiz(Nodo actual, Nodo Padre){
+    String salida="";
+    if(actual!=null){
+    if(Padre==null){
+    salida+="nodo"+actual.getAdministrador().getCorreo()+" [ label =\""+actual.getAdministrador().getCorreo()+"\"];\n";
+    }else{
+    if(Padre.getHijoIzq()==actual){
+    salida+="nodo"+actual.getAdministrador().getCorreo()+" [ label =\""+actual.getAdministrador().getCorreo()+"\"];\n";   
+    salida+="nodo"+Padre.getAdministrador().getCorreo() +" -> nodo"+actual.getAdministrador().getCorreo()+"\n" ;
+    }
+    else if(Padre.getHijoDer()==actual){
+    salida+="nodo"+actual.getAdministrador().getCorreo()+" [ label =\""+actual.getAdministrador().getCorreo()+"\"];\n";   
+    salida+="nodo"+Padre.getAdministrador().getCorreo() +" -> nodo"+actual.getAdministrador().getCorreo()+"\n" ;
+    }
+    }
+    if(actual.getHijoIzq()!=null){
+    salida+=CodigoGrapvhiz(actual.getHijoIzq(),actual);
+    }
+    if(actual.getHijoDer()!=null){
+    salida+=CodigoGrapvhiz(actual.getHijoDer(),actual);
+    }
+    }
+    return salida;
+    }
+    
+    public void CrearImagenArbol(){
+    try {
+        String codigo="digraph grafica{\n" +
+        "rankdir=TB;\n" +
+        "node [shape = record, style=filled, fillcolor=seashell2];";
+        codigo+=CodigoGrapvhiz(getRaiz(),null);
+        codigo+="\n}";
+        String ruta = "C:\\Users\\Francis\\Desktop\\ArbolAdministrador.txt";
+        File archivo = new File(ruta);
+        BufferedWriter bw;
+        if(archivo.exists()) {
+            bw = new BufferedWriter(new FileWriter(archivo));
+            bw.write(codigo);
+        } else {
+            bw = new BufferedWriter(new FileWriter(archivo));
+            bw.write(codigo);
+        }
+        bw.close();
+        
+      String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
+      
+      String fileInputPath = "C:\\Users\\Francis\\Desktop\\ArbolAdministrador.txt";
+      String fileOutputPath = "C:\\Users\\Francis\\Desktop\\ArbolAdministrador.jpg";
+      
+      String tParam = "-Tjpg";
+      String tOParam = "-o";
+        
+      String[] cmd = new String[5];
+      cmd[0] = dotPath;
+      cmd[1] = tParam;
+      cmd[2] = fileInputPath;
+      cmd[3] = tOParam;
+      cmd[4] = fileOutputPath;
+                  
+      Runtime rt = Runtime.getRuntime();
+      
+      rt.exec( cmd );
+      
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
     }
 }

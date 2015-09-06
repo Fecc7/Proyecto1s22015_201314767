@@ -1,8 +1,13 @@
 package WS;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import javax.swing.ImageIcon;
 
 @WebService(serviceName = "WSP1")
 public class WSP1 {
@@ -55,4 +60,12 @@ public class WSP1 {
     public String DibujarArbol(){
     return WSP1.arboladmi.RecorrerPreOrden(WSP1.arboladmi.getRaiz(), null);
     }
+    
+    @WebMethod()
+    public void DibujarAVLAdmi(){
+    WSP1.arboladmi.CrearImagenArbol();
+    }
+    
+    
+    
 }
