@@ -2,10 +2,29 @@ package Administrador;
 
 public final class ArbolAVL {
 
-
     Nodo raiz=null;
     public ArbolAVL(){
-    raiz=null; 
+    Agregar(new Administrador("b","b"));
+    Agregar(new Administrador("c","c"));
+    Agregar(new Administrador("a","a"));
+    Agregar(new Administrador("g","g"));
+    Agregar(new Administrador("i","i"));
+    Agregar(new Administrador("e","e"));
+    Agregar(new Administrador("f","f"));
+    Agregar(new Administrador("z","z"));
+    Agregar(new Administrador("m","m"));
+    Agregar(new Administrador("k","k"));
+    Agregar(new Administrador("y","y"));
+    Agregar(new Administrador("w","w"));
+    Agregar(new Administrador("h","h"));
+    Agregar(new Administrador("d","d"));
+    Agregar(new Administrador("du","du"));
+    Agregar(new Administrador("zu","zu"));
+    Agregar(new Administrador("za","za"));
+    //System.out.println("lllllllllllllllllllllllllll"+Buscar(getRaiz(),"j"));
+    //this.setRaiz(Eliminar(getRaiz(),"c"));
+    //this.setRaiz(EquilibrarTrasEliminar(getRaiz(),"c"));
+    System.out.println(RecorrerPreOrden(getRaiz(),null));
     }    
 
     public Nodo getRaiz() {
@@ -15,6 +34,28 @@ public final class ArbolAVL {
     public void setRaiz(Nodo raiz) {
         this.raiz = raiz;
     }
+    public String RecorrerPreOrden(Nodo actual, Nodo Padre){
+    String salida=null;
+    if(actual!=null){
+    if(Padre==null){
+    salida="raiz: "+actual.getAdministrador().getCorreo()+"\n";
+    }else{
+    if(Padre.getHijoIzq()==actual){
+    salida=Padre.getAdministrador().getCorreo() +" Izq --> "+actual.getAdministrador().getCorreo()+"\n" ;
+    }
+    else if(Padre.getHijoDer()==actual){
+    salida=Padre.getAdministrador().getCorreo() +" Der --> "+actual.getAdministrador().getCorreo()+"\n" ;
+    }
+    }
+    if(actual.getHijoIzq()!=null){
+    salida+=RecorrerPreOrden(actual.getHijoIzq(),actual);
+    }
+    if(actual.getHijoDer()!=null){
+    salida+=RecorrerPreOrden(actual.getHijoDer(),actual);
+    }
+    }
+    return salida;
+    }
     
     public void Agregar(Administrador administrador){
     setRaiz(Insertar(administrador,getRaiz()));
@@ -22,17 +63,19 @@ public final class ArbolAVL {
     
     public boolean Buscar(Nodo raiz,String correo,String contraseña){
     boolean r=false;
+    System.out.println("Metodo Buscar");
     if(raiz!=null){
-    if(raiz.getAdministrador().getCorreo().equals(correo)){
-    if(raiz.getAdministrador().getContraseña().equals(contraseña)){
-        r=true;
-    }}
-    else if(correo.compareTo(raiz.getAdministrador().getCorreo())<0){
+        System.out.println("Entro");
+        System.out.println(raiz.getAdministrador().getCorreo());
+        System.out.println(correo);
+    if(raiz.getAdministrador().getCorreo().equals(correo) && raiz.getAdministrador().getContraseña().equals(contraseña)){
+    r=true;
+    }else{
+    if(correo.compareTo(raiz.getAdministrador().getCorreo())<0){
     r=Buscar(raiz.getHijoIzq(),correo,contraseña);
-    }
-    else{
+    }else{
     r=Buscar(raiz.getHijoDer(),correo,contraseña);
-    }}
+    }}}
     return r;
     }
     
@@ -112,4 +155,111 @@ public final class ArbolAVL {
     
     return raiz;    
     }
+    
+    public Nodo HijoMasDerecha(Nodo raiz,Nodo Padre){
+    Nodo hijo=null;
+    if(raiz.getHijoDer()==null){
+    if(raiz.getHijoIzq()!=null && Padre.getHijoIzq()!=raiz){
+    Padre.setHijoDer(raiz.getHijoIzq());
+    raiz.setHijoIzq(null);
+    }else if(raiz.getHijoIzq()==null){
+    Padre.setHijoDer(null);
+    }
+    else if(raiz.getHijoIzq()!=null && Padre.getHijoIzq()==raiz){
+    Padre.setHijoIzq(raiz.getHijoIzq());
+    raiz.setHijoIzq(null);
+    }
+    hijo=raiz;
+    }else{
+    hijo=HijoMasDerecha(raiz.getHijoDer(),raiz);
+    }
+    return hijo;
+    }
+    public Nodo HijoMasIzquierda(Nodo raiz,Nodo Padre){
+    Nodo hijo=null;
+    if(raiz.getHijoIzq()==null){
+    if(raiz.getHijoDer()!=null){
+    Padre.setHijoIzq(raiz.getHijoDer());
+    raiz.setHijoDer(null);
+    }    
+    hijo=raiz;
+    }else{
+    hijo=HijoMasIzquierda(raiz.getHijoIzq(),raiz);
+    }
+    return hijo;
+    }
+    
+    public Nodo Eliminar(Nodo raiz,String correo){
+    Nodo i=null;
+    if(raiz!=null){
+    if(raiz.getAdministrador().getCorreo().equals(correo)){
+    if(raiz.getHijoDer()==null && raiz.getHijoIzq()==null){
+    i=null;
+    }
+    else if(raiz.getHijoDer()!=null && raiz.getHijoIzq()==null){
+    i=raiz.getHijoDer();
+    }
+    else if(raiz.getHijoDer()==null && raiz.getHijoIzq()!=null){
+    i=raiz.getHijoIzq();
+    }
+    else if(raiz.getHijoDer()!=null && raiz.getHijoIzq()!=null){
+    Nodo aux=HijoMasDerecha(raiz.getHijoIzq(),raiz);
+    Nodo aux2=raiz;
+    aux.setHijoIzq(raiz.getHijoIzq());
+    aux.setHijoDer(raiz.getHijoDer());
+    i= aux;
+    } } 
+    else{
+    if(correo.compareTo(raiz.getAdministrador().getCorreo())<0){
+    if(raiz.getHijoIzq()!=null){
+    raiz.setHijoIzq(Eliminar(raiz.getHijoIzq(),correo));   
+    i=raiz;
+    }else{
+    i=raiz;
+    }
+    }else{
+    if(raiz.getHijoDer()!=null){
+    raiz.setHijoDer(Eliminar(raiz.getHijoDer(),correo));
+    i=raiz;
+    }
+    else{
+    i=raiz;
+    } }  }  }
+    return i;
+    }
+    public Nodo EquilibrarTrasEliminar(Nodo raiz,String correo){
+    if(raiz!=null){
+    int hizq=Nodo.Altura(raiz.getHijoIzq())+1;
+    int hder=Nodo.Altura(raiz.getHijoDer())+1;
+    if(((hizq)-(hder))==2){
+      String dato=correo;
+      String datoizq=raiz.getHijoIzq().getAdministrador().getCorreo();
+     if(dato.compareTo(datoizq)<0){
+     raiz=RotarIzq(raiz);
+     }
+     else{
+     raiz=RotarDobleIzq(raiz);
+     }
+    }
+    if(((-hizq)+(hder))==2){
+      String dato=correo;
+      String datoder=raiz.getHijoDer().getAdministrador().getCorreo();
+    if(dato.compareTo(datoder)>0){
+    raiz=RotarDer(raiz);
+    }else{
+    raiz=RotarDobleDer(raiz);
+    }
+    }
+       
+    if(raiz.getAdministrador().getCorreo().equals(correo)){
+    System.out.println("Nodo Existente revisar");
+    }else{
+    if(correo.compareTo(raiz.getAdministrador().getCorreo())<0){
+    if(raiz.getHijoIzq()!=null){raiz.setHijoIzq(EquilibrarTrasEliminar(raiz.getHijoIzq(),correo));}
+    }else{
+    if(raiz.getHijoDer()!=null){raiz.setHijoDer(EquilibrarTrasEliminar(raiz.getHijoDer(),correo));}
+    }}}
+    return raiz;
+    }
+
 }

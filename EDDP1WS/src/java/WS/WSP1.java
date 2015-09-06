@@ -13,7 +13,6 @@ public class WSP1 {
     @WebMethod()
     public String Agregarbus(int id){
     Bus.Bus b=new Bus.Bus(id);
-    System.out.print(":3");
     WSP1.listabus.Agregar(b);
     return "";
     }
