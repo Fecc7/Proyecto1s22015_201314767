@@ -10,6 +10,7 @@ public class WSP1 {
     public static Bus.Lista listabus=new Bus.Lista();
     public static Administrador.ArbolAVL arboladmi=new Administrador.ArbolAVL();
     public static boolean admiactivo=false;
+    
     @WebMethod()
     public String Agregarbus(int id){
     Bus.Bus b=new Bus.Bus(id);
@@ -43,5 +44,15 @@ public class WSP1 {
     public boolean AgregarAdministrador(String correo,String contraseña){
     WSP1.arboladmi.Agregar(new Administrador.Administrador(correo, contraseña));
     return false;    
+    }
+    
+    @WebMethod()
+    public void EliminarAdministrador(String correo){
+    WSP1.arboladmi.Eliminar(WSP1.arboladmi.getRaiz(), correo);
+    }
+    
+    @WebMethod()
+    public String DibujarArbol(){
+    return WSP1.arboladmi.RecorrerPreOrden(WSP1.arboladmi.getRaiz(), null);
     }
 }

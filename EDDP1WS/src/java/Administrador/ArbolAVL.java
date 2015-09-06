@@ -261,5 +261,8 @@ public final class ArbolAVL {
     }}}
     return raiz;
     }
-
+    public void EliminarAdministrador(String correo){
+    this.setRaiz(Eliminar(getRaiz(),correo));
+    this.setRaiz(EquilibrarTrasEliminar(getRaiz(),correo));
+    }
 }
