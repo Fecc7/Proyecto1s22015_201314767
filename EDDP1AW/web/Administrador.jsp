@@ -1,13 +1,14 @@
 <%-- 
-    Document   : Inicio
-    Created on : 05-sep-2015, 17:47:59
+    Document   : Administrador
+    Created on : 07-sep-2015, 18:20:34
     Author     : Francis
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<html lang="en">
-	<head>
-		<title>Transmetro</title>
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Administrador</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
@@ -20,24 +21,22 @@
 		<script src="js/tms-0.3.js" type="text/javascript"></script>
 		<script src="js/tms_presets.js" type="text/javascript"></script>
 		<script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
-	</head>
-<body id="page1">
-	
-<!--==============================header=================================-->
+    </head>
+    <body>
+        <!--==============================header=================================-->
 				<header>
                                         <br>
                                         <nav>
 						<ul id="menu" class="menu">
 							<li class="active"><a href="Inicio.jsp">Home</a></li>
 							<li id="PestañaLogin"><a  href="Login.jsp">Entrar</a></li>
-							<li class="last"><a href="contacts.html">Contacts</a></li>
+                                                        <li class="last"><a href="contacts.html">Contacts</a></li>
 						</ul>
                                         </nav>
-                                            <form action="Inicio.jsp">
+                                            <form action="Administrador.jsp">
                                             <div class="wrapper p4">
 						<ul class="list-services">
-							<li><a href="#">Site Map</a></li>
-							<li><a href="#">Help</a></li>
+                                			<li><a href="CrearAdmi.jsp">Crear Administrador</a></li>
 							<li><a href="#">FAQs</a></li>
 							<li><a href="#">FAQs</a></li>
                                                         <li><a href="#">FAQs</a></li>
@@ -49,6 +48,5 @@
                                             </div>
                                         </form>
 					</header>
-<form></form>
-	</body>
+    </body>
 </html>

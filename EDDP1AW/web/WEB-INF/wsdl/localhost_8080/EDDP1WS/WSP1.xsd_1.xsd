@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://WS/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://WS/">
+
+<xs:element name="AgregarAdministrador" type="tns:AgregarAdministrador"/>
+
+<xs:element name="AgregarAdministradorResponse" type="tns:AgregarAdministradorResponse"/>
+
+<xs:element name="Agregarbus" type="tns:Agregarbus"/>
+
+<xs:element name="AgregarbusResponse" type="tns:AgregarbusResponse"/>
+
+<xs:element name="CerrarSesion" type="tns:CerrarSesion"/>
+
+<xs:element name="CerrarSesionResponse" type="tns:CerrarSesionResponse"/>
+
+<xs:element name="DibujarAVLAdmi" type="tns:DibujarAVLAdmi"/>
+
+<xs:element name="DibujarAVLAdmiResponse" type="tns:DibujarAVLAdmiResponse"/>
+
+<xs:element name="DibujarArbol" type="tns:DibujarArbol"/>
+
+<xs:element name="DibujarArbolResponse" type="tns:DibujarArbolResponse"/>
+
+<xs:element name="EliminarAdministrador" type="tns:EliminarAdministrador"/>
+
+<xs:element name="EliminarAdministradorResponse" type="tns:EliminarAdministradorResponse"/>
+
+<xs:element name="LoginAdmi" type="tns:LoginAdmi"/>
+
+<xs:element name="LoginAdmiResponse" type="tns:LoginAdmiResponse"/>
+
+<xs:element name="UsuarioAdmiActivo" type="tns:UsuarioAdmiActivo"/>
+
+<xs:element name="UsuarioAdmiActivoResponse" type="tns:UsuarioAdmiActivoResponse"/>
+
+<xs:element name="getListaBus" type="tns:getListaBus"/>
+
+<xs:element name="getListaBusResponse" type="tns:getListaBusResponse"/>
+
+<xs:element name="mostrarlistabuses" type="tns:mostrarlistabuses"/>
+
+<xs:element name="mostrarlistabusesResponse" type="tns:mostrarlistabusesResponse"/>
+
+<xs:complexType name="UsuarioAdmiActivo">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="UsuarioAdmiActivoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CerrarSesion">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="CerrarSesionResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="DibujarAVLAdmi">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="DibujarAVLAdmiResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="AgregarAdministrador">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AgregarAdministradorResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Agregarbus">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AgregarbusResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mostrarlistabuses">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="mostrarlistabusesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getListaBus">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getListaBusResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:lista" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lista">
+<xs:sequence>
+<xs:element name="inicio" type="tns:nodo" minOccurs="0"/>
+<xs:element name="ultimo" type="tns:nodo" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="nodo">
+<xs:sequence>
+<xs:element name="anterior" type="tns:nodo" minOccurs="0"/>
+<xs:element name="objeto" type="tns:bus" minOccurs="0"/>
+<xs:element name="siguiente" type="tns:nodo" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bus">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LoginAdmi">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LoginAdmiResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DibujarArbol">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="DibujarArbolResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarAdministrador">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarAdministradorResponse">
+<xs:sequence/>
+</xs:complexType>
+</xs:schema>
