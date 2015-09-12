@@ -4,41 +4,17 @@
 <xsd:import namespace="http://WS/" schemaLocation="http://localhost:8080/EDDP1WS/WSP1?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="mostrarlistabuses">
-<part name="parameters" element="tns:mostrarlistabuses"/>
+<message name="getListaBus">
+<part name="parameters" element="tns:getListaBus"/>
 </message>
-<message name="mostrarlistabusesResponse">
-<part name="parameters" element="tns:mostrarlistabusesResponse"/>
-</message>
-<message name="EliminarAdministrador">
-<part name="parameters" element="tns:EliminarAdministrador"/>
-</message>
-<message name="EliminarAdministradorResponse">
-<part name="parameters" element="tns:EliminarAdministradorResponse"/>
-</message>
-<message name="UsuarioAdmiActivo">
-<part name="parameters" element="tns:UsuarioAdmiActivo"/>
-</message>
-<message name="UsuarioAdmiActivoResponse">
-<part name="parameters" element="tns:UsuarioAdmiActivoResponse"/>
-</message>
-<message name="AgregarAdministrador">
-<part name="parameters" element="tns:AgregarAdministrador"/>
-</message>
-<message name="AgregarAdministradorResponse">
-<part name="parameters" element="tns:AgregarAdministradorResponse"/>
+<message name="getListaBusResponse">
+<part name="parameters" element="tns:getListaBusResponse"/>
 </message>
 <message name="Agregarbus">
 <part name="parameters" element="tns:Agregarbus"/>
 </message>
 <message name="AgregarbusResponse">
 <part name="parameters" element="tns:AgregarbusResponse"/>
-</message>
-<message name="getListaBus">
-<part name="parameters" element="tns:getListaBus"/>
-</message>
-<message name="getListaBusResponse">
-<part name="parameters" element="tns:getListaBusResponse"/>
 </message>
 <message name="LoginAdmi">
 <part name="parameters" element="tns:LoginAdmi"/>
@@ -64,30 +40,38 @@
 <message name="DibujarAVLAdmiResponse">
 <part name="parameters" element="tns:DibujarAVLAdmiResponse"/>
 </message>
+<message name="UsuarioAdmiActivo">
+<part name="parameters" element="tns:UsuarioAdmiActivo"/>
+</message>
+<message name="UsuarioAdmiActivoResponse">
+<part name="parameters" element="tns:UsuarioAdmiActivoResponse"/>
+</message>
+<message name="EliminarAdministrador">
+<part name="parameters" element="tns:EliminarAdministrador"/>
+</message>
+<message name="EliminarAdministradorResponse">
+<part name="parameters" element="tns:EliminarAdministradorResponse"/>
+</message>
+<message name="AgregarAdministrador">
+<part name="parameters" element="tns:AgregarAdministrador"/>
+</message>
+<message name="AgregarAdministradorResponse">
+<part name="parameters" element="tns:AgregarAdministradorResponse"/>
+</message>
+<message name="mostrarlistabuses">
+<part name="parameters" element="tns:mostrarlistabuses"/>
+</message>
+<message name="mostrarlistabusesResponse">
+<part name="parameters" element="tns:mostrarlistabusesResponse"/>
+</message>
 <portType name="WSP1">
-<operation name="mostrarlistabuses">
-<input wsam:Action="http://WS/WSP1/mostrarlistabusesRequest" message="tns:mostrarlistabuses"/>
-<output wsam:Action="http://WS/WSP1/mostrarlistabusesResponse" message="tns:mostrarlistabusesResponse"/>
-</operation>
-<operation name="EliminarAdministrador">
-<input wsam:Action="http://WS/WSP1/EliminarAdministradorRequest" message="tns:EliminarAdministrador"/>
-<output wsam:Action="http://WS/WSP1/EliminarAdministradorResponse" message="tns:EliminarAdministradorResponse"/>
-</operation>
-<operation name="UsuarioAdmiActivo">
-<input wsam:Action="http://WS/WSP1/UsuarioAdmiActivoRequest" message="tns:UsuarioAdmiActivo"/>
-<output wsam:Action="http://WS/WSP1/UsuarioAdmiActivoResponse" message="tns:UsuarioAdmiActivoResponse"/>
-</operation>
-<operation name="AgregarAdministrador">
-<input wsam:Action="http://WS/WSP1/AgregarAdministradorRequest" message="tns:AgregarAdministrador"/>
-<output wsam:Action="http://WS/WSP1/AgregarAdministradorResponse" message="tns:AgregarAdministradorResponse"/>
+<operation name="getListaBus">
+<input wsam:Action="http://WS/WSP1/getListaBusRequest" message="tns:getListaBus"/>
+<output wsam:Action="http://WS/WSP1/getListaBusResponse" message="tns:getListaBusResponse"/>
 </operation>
 <operation name="Agregarbus">
 <input wsam:Action="http://WS/WSP1/AgregarbusRequest" message="tns:Agregarbus"/>
 <output wsam:Action="http://WS/WSP1/AgregarbusResponse" message="tns:AgregarbusResponse"/>
-</operation>
-<operation name="getListaBus">
-<input wsam:Action="http://WS/WSP1/getListaBusRequest" message="tns:getListaBus"/>
-<output wsam:Action="http://WS/WSP1/getListaBusResponse" message="tns:getListaBusResponse"/>
 </operation>
 <operation name="LoginAdmi">
 <input wsam:Action="http://WS/WSP1/LoginAdmiRequest" message="tns:LoginAdmi"/>
@@ -105,37 +89,26 @@
 <input wsam:Action="http://WS/WSP1/DibujarAVLAdmiRequest" message="tns:DibujarAVLAdmi"/>
 <output wsam:Action="http://WS/WSP1/DibujarAVLAdmiResponse" message="tns:DibujarAVLAdmiResponse"/>
 </operation>
+<operation name="UsuarioAdmiActivo">
+<input wsam:Action="http://WS/WSP1/UsuarioAdmiActivoRequest" message="tns:UsuarioAdmiActivo"/>
+<output wsam:Action="http://WS/WSP1/UsuarioAdmiActivoResponse" message="tns:UsuarioAdmiActivoResponse"/>
+</operation>
+<operation name="EliminarAdministrador">
+<input wsam:Action="http://WS/WSP1/EliminarAdministradorRequest" message="tns:EliminarAdministrador"/>
+<output wsam:Action="http://WS/WSP1/EliminarAdministradorResponse" message="tns:EliminarAdministradorResponse"/>
+</operation>
+<operation name="AgregarAdministrador">
+<input wsam:Action="http://WS/WSP1/AgregarAdministradorRequest" message="tns:AgregarAdministrador"/>
+<output wsam:Action="http://WS/WSP1/AgregarAdministradorResponse" message="tns:AgregarAdministradorResponse"/>
+</operation>
+<operation name="mostrarlistabuses">
+<input wsam:Action="http://WS/WSP1/mostrarlistabusesRequest" message="tns:mostrarlistabuses"/>
+<output wsam:Action="http://WS/WSP1/mostrarlistabusesResponse" message="tns:mostrarlistabusesResponse"/>
+</operation>
 </portType>
 <binding name="WSP1PortBinding" type="tns:WSP1">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="mostrarlistabuses">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="EliminarAdministrador">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="UsuarioAdmiActivo">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="AgregarAdministrador">
+<operation name="getListaBus">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -145,15 +118,6 @@
 </output>
 </operation>
 <operation name="Agregarbus">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="getListaBus">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -190,6 +154,42 @@
 </output>
 </operation>
 <operation name="DibujarAVLAdmi">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="UsuarioAdmiActivo">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="EliminarAdministrador">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AgregarAdministrador">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="mostrarlistabuses">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

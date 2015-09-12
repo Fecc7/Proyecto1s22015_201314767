@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Administrador
-    Created on : 07-sep-2015, 18:20:34
+    Document   : CrearChofer
+    Created on : 09-sep-2015, 11:28:23
     Author     : Francis
 --%>
 
@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-		<title>Administrador</title>
+		<title>Crear Chofer</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
@@ -22,11 +22,11 @@
 		<script src="js/tms_presets.js" type="text/javascript"></script>
 		<script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
     </head>
-    <body>
+ <body>
         <div class="extra">
             <div class="main">
                 <br><br><br>
-        <!--==============================header=================================-->
+<!--==============================header=================================-->
 				<header>
                                         <br>
                                         <nav>
@@ -49,8 +49,16 @@
                                                         <li><input class="button" type="submit" value="Agregar" name="Agregar" /></li>
 						</ul>
                                             </div>
-                                        </form>
-					</header>
-    </div></div>
-            </body>
+                                    </form>
+				</header>   
+    <form name="FormularioCrearEstacion">
+        <span class="text-form">Tipo de Estaccion: </span><select name="TipoEstacion">
+            <option>Clave</option>
+            <option>General</option>
+        </select><br>
+        <span class="text-form"></span><input type="text" name="IdEstacion" value="" /><br>
+        <span class="text-form">contraseña: </span><input type="text" name="Contraseñae" value="" /><br>
+    </form>
+</div></div>
+    </body>
 </html>

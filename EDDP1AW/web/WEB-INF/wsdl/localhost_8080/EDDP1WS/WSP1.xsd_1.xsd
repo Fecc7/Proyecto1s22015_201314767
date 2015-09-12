@@ -40,6 +40,14 @@
 
 <xs:element name="mostrarlistabusesResponse" type="tns:mostrarlistabusesResponse"/>
 
+<xs:complexType name="CerrarSesion">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="CerrarSesionResponse">
+<xs:sequence/>
+</xs:complexType>
+
 <xs:complexType name="UsuarioAdmiActivo">
 <xs:sequence/>
 </xs:complexType>
@@ -50,33 +58,12 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="CerrarSesion">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="CerrarSesionResponse">
-<xs:sequence/>
-</xs:complexType>
-
 <xs:complexType name="DibujarAVLAdmi">
 <xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="DibujarAVLAdmiResponse">
 <xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="AgregarAdministrador">
-<xs:sequence>
-<xs:element name="arg0" type="xs:string" minOccurs="0"/>
-<xs:element name="arg1" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="AgregarAdministradorResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:boolean"/>
-</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="Agregarbus">
@@ -91,13 +78,16 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="mostrarlistabuses">
-<xs:sequence/>
+<xs:complexType name="AgregarAdministrador">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="mostrarlistabusesResponse">
+<xs:complexType name="AgregarAdministradorResponse">
 <xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
+<xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -150,6 +140,16 @@
 </xs:complexType>
 
 <xs:complexType name="DibujarArbolResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mostrarlistabuses">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="mostrarlistabusesResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>

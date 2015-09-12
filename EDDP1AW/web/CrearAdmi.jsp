@@ -23,6 +23,9 @@
 		<script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
     </head>
     <body>
+                <div class="extra">
+                    <div class="main">
+                        <br><br><br>
         <!--==============================header=================================-->
 				<header>
                                         <br>
@@ -37,7 +40,7 @@
                                             <div class="wrapper p4">
 						<ul class="list-services">
                                 			<li><a href="CrearAdmi.jsp">Crear Administrador</a></li>
-							<li><a href="#">FAQs</a></li>
+							<li><a href="CrearEstacion.jsp">Crear Estacion</a></li>
 							<li><a href="#">FAQs</a></li>
                                                         <li><a href="#">FAQs</a></li>
                                                         <li><a href="#">FAQs</a></li>
@@ -84,5 +87,6 @@
     <%-- end web service invocation --%><hr/>
 
 </form>    
+    </div></div>
     </body>
 </html>
