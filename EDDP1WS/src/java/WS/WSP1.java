@@ -1,5 +1,7 @@
 package WS;
 
+import Administrador.ArbolAVL;
+import Bus.Lista;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -21,6 +23,13 @@ public class WSP1 {
     Bus.Bus b=new Bus.Bus(id);
     WSP1.listabus.Agregar(b);
     return "";
+    }
+
+    @WebMethod()
+    public boolean UsuarioAdmiActivo(){
+    boolean a=false;
+    a=WSP1.admiactivo;
+    return a;
     }
     
     @WebMethod()
@@ -46,6 +55,11 @@ public class WSP1 {
     }
     
     @WebMethod()
+    public void CerrarSesion(){
+    WSP1.admiactivo=false;
+    }
+    
+    @WebMethod()
     public boolean AgregarAdministrador(String correo,String contraseña){
     WSP1.arboladmi.Agregar(new Administrador.Administrador(correo, contraseña));
     return false;    
@@ -53,12 +67,14 @@ public class WSP1 {
     
     @WebMethod()
     public void EliminarAdministrador(String correo){
-    WSP1.arboladmi.Eliminar(WSP1.arboladmi.getRaiz(), correo);
+    WSP1.arboladmi.EliminarNodo(correo);
     }
     
     @WebMethod()
     public String DibujarArbol(){
-    return WSP1.arboladmi.RecorrerPreOrden(WSP1.arboladmi.getRaiz(), null);
+        String a="";
+        a=WSP1.arboladmi.RecorrerPreOrden(WSP1.arboladmi.getRaiz(), null);
+    return a;
     }
     
     @WebMethod()

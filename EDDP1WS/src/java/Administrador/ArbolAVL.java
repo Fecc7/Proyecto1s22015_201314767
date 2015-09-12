@@ -8,27 +8,14 @@ public final class ArbolAVL {
 
     Nodo raiz=null;
     public ArbolAVL(){
-    Agregar(new Administrador("b","b"));
-    Agregar(new Administrador("c","c"));
-    Agregar(new Administrador("a","a"));
-    Agregar(new Administrador("g","g"));
-    Agregar(new Administrador("i","i"));
-    Agregar(new Administrador("e","e"));
-    Agregar(new Administrador("f","f"));
-    Agregar(new Administrador("z","z"));
-    Agregar(new Administrador("m","m"));
-    Agregar(new Administrador("k","k"));
-    Agregar(new Administrador("y","y"));
-    Agregar(new Administrador("w","w"));
-    Agregar(new Administrador("h","h"));
-    Agregar(new Administrador("d","d"));
-    Agregar(new Administrador("du","du"));
-    Agregar(new Administrador("zu","zu"));
-    Agregar(new Administrador("za","za"));
+    //Agregar(new Administrador("b","b"));
+    //Agregar(new Administrador("za","za"));
+    //Agregar(new Administrador("c","za"));
     //System.out.println("lllllllllllllllllllllllllll"+Buscar(getRaiz(),"j"));
     //this.setRaiz(Eliminar(getRaiz(),"c"));
     //this.setRaiz(EquilibrarTrasEliminar(getRaiz(),"c"));
     //System.out.println(CodigoGrapvhiz(getRaiz(),null));
+    Agregar(new Administrador("francisemanuelchic@gmail.com","123456"));    
     }    
 
     public Nodo getRaiz() {
@@ -167,7 +154,8 @@ public final class ArbolAVL {
     Padre.setHijoDer(raiz.getHijoIzq());
     raiz.setHijoIzq(null);
     }else if(raiz.getHijoIzq()==null){
-    Padre.setHijoDer(null);
+    if(Padre.getHijoDer()==raiz){
+    Padre.setHijoDer(null);}
     }
     else if(raiz.getHijoIzq()!=null && Padre.getHijoIzq()==raiz){
     Padre.setHijoIzq(raiz.getHijoIzq());
@@ -193,6 +181,10 @@ public final class ArbolAVL {
     return hijo;
     }
     
+    public void EliminarNodo(String correo){
+    this.setRaiz(Eliminar(getRaiz(),correo));
+    this.setRaiz(EquilibrarTrasEliminar(getRaiz(),correo));
+    }
     public Nodo Eliminar(Nodo raiz,String correo){
     Nodo i=null;
     if(raiz!=null){
@@ -209,7 +201,8 @@ public final class ArbolAVL {
     else if(raiz.getHijoDer()!=null && raiz.getHijoIzq()!=null){
     Nodo aux=HijoMasDerecha(raiz.getHijoIzq(),raiz);
     Nodo aux2=raiz;
-    aux.setHijoIzq(raiz.getHijoIzq());
+    if(aux!=raiz.getHijoIzq()){
+    aux.setHijoIzq(raiz.getHijoIzq());}
     aux.setHijoDer(raiz.getHijoDer());
     i= aux;
     } } 
@@ -231,26 +224,38 @@ public final class ArbolAVL {
     } }  }  }
     return i;
     }
-    public Nodo EquilibrarTrasEliminar(Nodo raiz,String correo){
+public Nodo EquilibrarTrasEliminar(Nodo raiz,String correo){
     if(raiz!=null){
     int hizq=Nodo.Altura(raiz.getHijoIzq())+1;
     int hder=Nodo.Altura(raiz.getHijoDer())+1;
     if(((hizq)-(hder))==2){
       String dato=correo;
       String datoizq=raiz.getHijoIzq().getAdministrador().getCorreo();
-     if(dato.compareTo(datoizq)<0){
-     raiz=RotarIzq(raiz);
-     }
-     else{
-     raiz=RotarDobleIzq(raiz);
-     }
+     //if(dato.compareTo(datoizq)<0){
+     //raiz=RotarIzq(raiz);
+     //}
+     //else{
+     //raiz=RotarDobleIzq(raiz);
+     //}
+      if(raiz.getHijoIzq().getHijoIzq()!=null){
+      raiz=RotarIzq(raiz);
+      }
+      else{
+      raiz=RotarDobleIzq(raiz);
+      }
     }
     if(((-hizq)+(hder))==2){
       String dato=correo;
       String datoder=raiz.getHijoDer().getAdministrador().getCorreo();
-    if(dato.compareTo(datoder)>0){
+    //if(dato.compareTo(datoder)>0){
+    //raiz=RotarDer(raiz);
+    //}else{
+    //raiz=RotarDobleDer(raiz);
+    //}
+    if(raiz.getHijoDer().getHijoDer()!=null){
     raiz=RotarDer(raiz);
-    }else{
+    }
+    else{
     raiz=RotarDobleDer(raiz);
     }
     }
@@ -270,26 +275,35 @@ public final class ArbolAVL {
     this.setRaiz(EquilibrarTrasEliminar(getRaiz(),correo));
     }
     
-    public String CodigoGrapvhiz(Nodo actual, Nodo Padre){
+    public String CodigoGrapvhiz(Nodo actual, Nodo Padre,int numero){
     String salida="";
+   
     if(actual!=null){
+    int na=actual.getAdministrador().getCorreo().hashCode();
+    if(na<0){na=na*(-1);}
+    
     if(Padre==null){
-    salida+="nodo"+actual.getAdministrador().getCorreo()+" [ label =\""+actual.getAdministrador().getCorreo()+"\"];\n";
+    salida+="nodo"+(na)+" [ label =\""+actual.getAdministrador().getCorreo()+"\"];\n";
+    numero++;
     }else{
+    int np=Padre.getAdministrador().getCorreo().hashCode();    
+    if(np<0){np=np*(-1);}
     if(Padre.getHijoIzq()==actual){
-    salida+="nodo"+actual.getAdministrador().getCorreo()+" [ label =\""+actual.getAdministrador().getCorreo()+"\"];\n";   
-    salida+="nodo"+Padre.getAdministrador().getCorreo() +" -> nodo"+actual.getAdministrador().getCorreo()+"\n" ;
+    salida+="nodo"+(na)+" [ label =\""+actual.getAdministrador().getCorreo()+"\"];\n";   
+    salida+="nodo"+(np) +" -> nodo"+(na)+";\n" ;
+    numero++;
     }
     else if(Padre.getHijoDer()==actual){
-    salida+="nodo"+actual.getAdministrador().getCorreo()+" [ label =\""+actual.getAdministrador().getCorreo()+"\"];\n";   
-    salida+="nodo"+Padre.getAdministrador().getCorreo() +" -> nodo"+actual.getAdministrador().getCorreo()+"\n" ;
+    salida+="nodo"+(na)+" [ label =\""+actual.getAdministrador().getCorreo()+"\"];\n";   
+    salida+="nodo"+(np)+" -> nodo"+(na)+";\n" ;
+    numero++;
     }
     }
     if(actual.getHijoIzq()!=null){
-    salida+=CodigoGrapvhiz(actual.getHijoIzq(),actual);
+    salida+=CodigoGrapvhiz(actual.getHijoIzq(),actual,numero);
     }
     if(actual.getHijoDer()!=null){
-    salida+=CodigoGrapvhiz(actual.getHijoDer(),actual);
+    salida+=CodigoGrapvhiz(actual.getHijoDer(),actual,numero);
     }
     }
     return salida;
@@ -300,7 +314,7 @@ public final class ArbolAVL {
         String codigo="digraph grafica{\n" +
         "rankdir=TB;\n" +
         "node [shape = record, style=filled, fillcolor=seashell2];";
-        codigo+=CodigoGrapvhiz(getRaiz(),null);
+        codigo+=CodigoGrapvhiz(getRaiz(),null,0);
         codigo+="\n}";
         String ruta = "C:\\Users\\Francis\\Desktop\\ArbolAdministrador.txt";
         File archivo = new File(ruta);
