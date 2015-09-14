@@ -1,4 +1,9 @@
-package Administrador;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Chofer;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -8,14 +13,15 @@ public final class ArbolAVL {
 
     Nodo raiz=null;
     public ArbolAVL(){
-    //Agregar(new Administrador("b","b"));
-    //Agregar(new Administrador("za","za"));
-    //Agregar(new Administrador("c","za"));
+    //Agregar(new Chofer("b","b"));
+    //Agregar(new Chofer("za","za"));
+    //Agregar(new Chofer("c","za"));
     //System.out.println("lllllllllllllllllllllllllll"+Buscar(getRaiz(),"j"));
     //this.setRaiz(Eliminar(getRaiz(),"c"));
     //this.setRaiz(EquilibrarTrasEliminar(getRaiz(),"c"));
     //System.out.println(CodigoGrapvhiz(getRaiz(),null));
-    Agregar(new Administrador("francisemanuelchic@gmail.com","123456"));    
+    Agregar(new Chofer(0,"P","S","123456"));    
+    
     }    
 
     public Nodo getRaiz() {
@@ -29,13 +35,13 @@ public final class ArbolAVL {
     String salida=null;
     if(actual!=null){
     if(Padre==null){
-    salida="raiz: "+actual.getAdministrador().getCorreo()+"\n";
+    salida="raiz: "+actual.getChofer().getId()+"\n";
     }else{
     if(Padre.getHijoIzq()==actual){
-    salida=Padre.getAdministrador().getCorreo() +" Izq --> "+actual.getAdministrador().getCorreo()+"\n" ;
+    salida=Padre.getChofer().getId() +" Izq --> "+actual.getChofer().getId()+"\n" ;
     }
     else if(Padre.getHijoDer()==actual){
-    salida=Padre.getAdministrador().getCorreo() +" Der --> "+actual.getAdministrador().getCorreo()+"\n" ;
+    salida=Padre.getChofer().getId() +" Der --> "+actual.getChofer().getId()+"\n" ;
     }
     }
     if(actual.getHijoIzq()!=null){
@@ -48,24 +54,24 @@ public final class ArbolAVL {
     return salida;
     }
     
-    public void Agregar(Administrador administrador){
-    setRaiz(Insertar(administrador,getRaiz()));
+    public void Agregar(Chofer chofer){
+    setRaiz(Insertar(chofer,getRaiz()));
     }
     
-    public boolean Buscar(Nodo raiz,String correo,String contraseña){
+    public boolean Buscar(Nodo raiz,int id,String contraseña){
     boolean r=false;
     System.out.println("Metodo Buscar");
     if(raiz!=null){
         System.out.println("Entro");
-        System.out.println(raiz.getAdministrador().getCorreo());
-        System.out.println(correo);
-    if(raiz.getAdministrador().getCorreo().equals(correo) && raiz.getAdministrador().getContraseña().equals(contraseña)){
+        System.out.println(raiz.getChofer().getId());
+        System.out.println(id);
+    if(raiz.getChofer().getId()==(id) && raiz.getChofer().getContraseña().equals(contraseña)){
     r=true;
     }else{
-    if(correo.compareTo(raiz.getAdministrador().getCorreo())<0){
-    r=Buscar(raiz.getHijoIzq(),correo,contraseña);
+    if(id<raiz.getChofer().getId()){
+    r=Buscar(raiz.getHijoIzq(),id,contraseña);
     }else{
-    r=Buscar(raiz.getHijoDer(),correo,contraseña);
+    r=Buscar(raiz.getHijoDer(),id,contraseña);
     }}}
     return r;
     }
@@ -90,53 +96,53 @@ public final class ArbolAVL {
     raiz.setHijoDer(RotarIzq(raiz.getHijoDer()));
     return RotarDer(raiz);
     }
-    public Nodo Insertar(Administrador administrador,Nodo raiz){
-    String correoad="";
-    String correoadri="";
-    String correoadrd="";
+    public Nodo Insertar(Chofer chofer,Nodo raiz){
+    int idad;
+    int idadri;
+    int idadrd;
     if(raiz==null){
-    raiz=new Nodo(administrador);
-    System.out.println("Insertado " + administrador.getCorreo());
+    raiz=new Nodo(chofer);
+    System.out.println("Insertado " + chofer.getId());
     }
     else{
-    correoad=administrador.getCorreo();
-    correoadri=raiz.getAdministrador().getCorreo();
-    correoadrd=raiz.getAdministrador().getCorreo();
-    int opcion1=correoad.compareTo(correoadri);
-    int opcion2=correoad.compareTo(correoadrd);
-    if(opcion1<0){
-    raiz.setHijoIzq(Insertar(administrador,raiz.getHijoIzq()));
+    idad=chofer.getId();
+    idadri=raiz.getChofer().getId();
+    idadrd=raiz.getChofer().getId();
+    /*int opcion1=idad.compareTo(idadri);
+    int opcion2=idad.compareTo(idadrd);*/
+    if(chofer.getId()<raiz.getChofer().getId()){
+    raiz.setHijoIzq(Insertar(chofer,raiz.getHijoIzq()));
     int hizq=Nodo.Altura(raiz.getHijoIzq())+1;
     int hder=Nodo.Altura(raiz.getHijoDer())+1;
-    System.out.println(raiz.getAdministrador().getCorreo()+" hijo izq "+hizq);
-    System.out.println(raiz.getAdministrador().getCorreo()+" hijo der "+hder);
+    System.out.println(raiz.getChofer().getId()+" hijo izq "+hizq);
+    System.out.println(raiz.getChofer().getId()+" hijo der "+hder);
     if(((hizq)-(hder))==2){
-      String dato=administrador.getCorreo();
-      String datoizq=raiz.getHijoIzq().getAdministrador().getCorreo();
-     if(dato.compareTo(datoizq)<0){
-     System.out.println(administrador.getCorreo()+" Caso 1");
+      /*String dato=chofer.getId();
+      String datoizq=raiz.getHijoIzq().getChofer().getId();*/
+     if(raiz.getHijoIzq().getHijoIzq()!=null){
+     System.out.println(chofer.getId()+" Caso 1");
      raiz=RotarIzq(raiz);
      }
      else{
-        System.out.println(administrador.getCorreo()+" Caso 2");
+        System.out.println(chofer.getId()+" Caso 2");
         raiz=RotarDobleIzq(raiz);
      }
     }
     }
-    else if(opcion2>0){
-    raiz.setHijoDer(Insertar(administrador,raiz.getHijoDer()));   
+    else if(chofer.getId()>raiz.getChofer().getId()){
+    raiz.setHijoDer(Insertar(chofer,raiz.getHijoDer()));   
     int hizq=Nodo.Altura(raiz.getHijoIzq())+1;
     int hder=Nodo.Altura(raiz.getHijoDer())+1;
-    System.out.println(raiz.getAdministrador().getCorreo()+" hijo izq "+hizq);
-    System.out.println(raiz.getAdministrador().getCorreo()+" hijo der "+hder);
+    System.out.println(raiz.getChofer().getId()+" hijo izq "+hizq);
+    System.out.println(raiz.getChofer().getId()+" hijo der "+hder);
     if(((-hizq)+(hder))==2){
-      String dato=administrador.getCorreo();
-      String datoder=raiz.getHijoDer().getAdministrador().getCorreo();
-    if(dato.compareTo(datoder)>0){
-    System.out.println(administrador.getCorreo()+" Caso 3");
+      /*String dato=chofer.getId();
+      String datoder=raiz.getHijoDer().getChofer().getId();*/
+    if(raiz.getHijoDer().getHijoDer()!=null){
+    System.out.println(chofer.getId()+" Caso 3");
     raiz=RotarDer(raiz);
     }else{
-    System.out.println(administrador.getCorreo()+" Caso 4");
+    System.out.println(chofer.getId()+" Caso 4");
     raiz=RotarDobleDer(raiz);
     }
     }
@@ -181,14 +187,14 @@ public final class ArbolAVL {
     return hijo;
     }
     
-    public void EliminarNodo(String correo){
-    this.setRaiz(Eliminar(getRaiz(),correo));
-    this.setRaiz(EquilibrarTrasEliminar(getRaiz(),correo));
+    public void EliminarNodo(int id){
+    this.setRaiz(Eliminar(getRaiz(),id));
+    this.setRaiz(EquilibrarTrasEliminar(getRaiz(),id));
     }
-    public Nodo Eliminar(Nodo raiz,String correo){
+    public Nodo Eliminar(Nodo raiz,int id){
     Nodo i=null;
     if(raiz!=null){
-    if(raiz.getAdministrador().getCorreo().equals(correo)){
+    if(raiz.getChofer().getId()==(id)){
     if(raiz.getHijoDer()==null && raiz.getHijoIzq()==null){
     i=null;
     }
@@ -207,18 +213,18 @@ public final class ArbolAVL {
     i= aux;
     } } 
     else{
-    if(correo.compareTo(raiz.getAdministrador().getCorreo())<0){
+    if(id<raiz.getChofer().getId()){
     if(raiz.getHijoIzq()!=null){
-    raiz.setHijoIzq(Eliminar(raiz.getHijoIzq(),correo));   
-    i=EquilibrarTrasEliminar(raiz,correo);
+    raiz.setHijoIzq(Eliminar(raiz.getHijoIzq(),id));   
+    i=EquilibrarTrasEliminar(raiz,id);
     //i=raiz;
     }else{
     i=raiz;
     }
     }else{
     if(raiz.getHijoDer()!=null){
-    raiz.setHijoDer(Eliminar(raiz.getHijoDer(),correo));
-    i=EquilibrarTrasEliminar(raiz,correo);
+    raiz.setHijoDer(Eliminar(raiz.getHijoDer(),id));
+    i=EquilibrarTrasEliminar(raiz,id);
     //i=raiz;
     }
     else{
@@ -226,13 +232,13 @@ public final class ArbolAVL {
     } }  }  }
     return i;
     }
-public Nodo EquilibrarTrasEliminar(Nodo raiz,String correo){
+public Nodo EquilibrarTrasEliminar(Nodo raiz,int id){
     if(raiz!=null){
     int hizq=Nodo.Altura(raiz.getHijoIzq())+1;
     int hder=Nodo.Altura(raiz.getHijoDer())+1;
     if(((hizq)-(hder))==2){
-      String dato=correo;
-      String datoizq=raiz.getHijoIzq().getAdministrador().getCorreo();
+      //String dato=id;
+      //String datoizq=raiz.getHijoIzq().getChofer().getId();
      //if(dato.compareTo(datoizq)<0){
      //raiz=RotarIzq(raiz);
      //}
@@ -247,8 +253,8 @@ public Nodo EquilibrarTrasEliminar(Nodo raiz,String correo){
       }
     }
     if(((-hizq)+(hder))==2){
-      String dato=correo;
-      String datoder=raiz.getHijoDer().getAdministrador().getCorreo();
+      //String dato=id;
+      //String datoder=raiz.getHijoDer().getChofer().getId();
     //if(dato.compareTo(datoder)>0){
     //raiz=RotarDer(raiz);
     //}else{
@@ -262,41 +268,41 @@ public Nodo EquilibrarTrasEliminar(Nodo raiz,String correo){
     }
     }
        
-    if(raiz.getAdministrador().getCorreo().equals(correo)){
+    if(raiz.getChofer().getId()==(id)){
     System.out.println("Nodo Existente revisar");
     }else{
-    if(correo.compareTo(raiz.getAdministrador().getCorreo())<0){
-    if(raiz.getHijoIzq()!=null){raiz.setHijoIzq(EquilibrarTrasEliminar(raiz.getHijoIzq(),correo));}
+    if(id<(raiz.getChofer().getId())){
+    if(raiz.getHijoIzq()!=null){raiz.setHijoIzq(EquilibrarTrasEliminar(raiz.getHijoIzq(),id));}
     }else{
-    if(raiz.getHijoDer()!=null){raiz.setHijoDer(EquilibrarTrasEliminar(raiz.getHijoDer(),correo));}
+    if(raiz.getHijoDer()!=null){raiz.setHijoDer(EquilibrarTrasEliminar(raiz.getHijoDer(),id));}
     }}}
     return raiz;
     }
-    public void EliminarAdministrador(String correo){
-    this.setRaiz(Eliminar(getRaiz(),correo));
-    this.setRaiz(EquilibrarTrasEliminar(getRaiz(),correo));
+    public void EliminarChofer(int id){
+    this.setRaiz(Eliminar(getRaiz(),id));
+    this.setRaiz(EquilibrarTrasEliminar(getRaiz(),id));
     }
     
     public String CodigoGrapvhiz(Nodo actual, Nodo Padre,int numero){
     String salida="";
    
     if(actual!=null){
-    int na=actual.getAdministrador().getCorreo().hashCode();
+    int na=actual.getChofer().getId();
     if(na<0){na=na*(-1);}
     
     if(Padre==null){
-    salida+="nodo"+(na)+" [ label =\""+actual.getAdministrador().getCorreo()+"\"];\n";
+    salida+="nodo"+(na)+" [ label =\""+actual.getChofer().getId()+"\"];\n";
     numero++;
     }else{
-    int np=Padre.getAdministrador().getCorreo().hashCode();    
+    int np=Padre.getChofer().getId();    
     if(np<0){np=np*(-1);}
     if(Padre.getHijoIzq()==actual){
-    salida+="nodo"+(na)+" [ label =\""+actual.getAdministrador().getCorreo()+"\"];\n";   
+    salida+="nodo"+(na)+" [ label =\""+actual.getChofer().getId()+"\"];\n";   
     salida+="nodo"+(np) +" -> nodo"+(na)+";\n" ;
     numero++;
     }
     else if(Padre.getHijoDer()==actual){
-    salida+="nodo"+(na)+" [ label =\""+actual.getAdministrador().getCorreo()+"\"];\n";   
+    salida+="nodo"+(na)+" [ label =\""+actual.getChofer().getId()+"\"];\n";   
     salida+="nodo"+(np)+" -> nodo"+(na)+";\n" ;
     numero++;
     }
@@ -318,7 +324,7 @@ public Nodo EquilibrarTrasEliminar(Nodo raiz,String correo){
         "node [shape = record, style=filled, fillcolor=seashell2];";
         codigo+=CodigoGrapvhiz(getRaiz(),null,0);
         codigo+="\n}";
-        String ruta = "C:\\Users\\Francis\\Desktop\\ArbolAdministrador.txt";
+        String ruta = "C:\\Users\\Francis\\Desktop\\ArbolChofer.txt";
         File archivo = new File(ruta);
         BufferedWriter bw;
         if(archivo.exists()) {
@@ -332,8 +338,8 @@ public Nodo EquilibrarTrasEliminar(Nodo raiz,String correo){
         
       String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
       
-      String fileInputPath = "C:\\Users\\Francis\\Desktop\\ArbolAdministrador.txt";
-      String fileOutputPath = "C:\\Users\\Francis\\Desktop\\ArbolAdministrador.jpg";
+      String fileInputPath = "C:\\Users\\Francis\\Desktop\\ArbolChofer.txt";
+      String fileOutputPath = "C:\\Users\\Francis\\Desktop\\ArbolChofer.jpg";
       
       String tParam = "-Tjpg";
       String tOParam = "-o";
