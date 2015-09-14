@@ -20,7 +20,54 @@ public final class ArbolAVL {
     //this.setRaiz(Eliminar(getRaiz(),"c"));
     //this.setRaiz(EquilibrarTrasEliminar(getRaiz(),"c"));
     //System.out.println(CodigoGrapvhiz(getRaiz(),null));
-    Agregar(new Chofer(0,"P","S","123456"));    
+    Agregar(new Chofer(1,"P","S","123456"));    
+    Agregar(new Chofer(2,"P","S","123456"));    
+    Agregar(new Chofer(3,"P","S","123456"));    
+    Agregar(new Chofer(4,"P","S","123456"));    
+    Agregar(new Chofer(5,"P","S","123456"));    
+    Agregar(new Chofer(6,"P","S","123456"));    
+    Agregar(new Chofer(7,"P","S","123456"));    
+    Agregar(new Chofer(8,"P","S","123456"));    
+    Agregar(new Chofer(9,"P","S","123456"));    
+    Agregar(new Chofer(100,"P","S","123456"));    
+    Agregar(new Chofer(200,"P","S","123456"));    
+    Agregar(new Chofer(300,"P","S","123456"));    
+    Agregar(new Chofer(400,"P","S","123456"));    
+    Agregar(new Chofer(500,"P","S","123456"));    
+    Agregar(new Chofer(600,"P","S","123456"));    
+    Agregar(new Chofer(700,"P","S","123456"));    
+    Agregar(new Chofer(800,"P","S","123456"));    
+    Agregar(new Chofer(900,"P","S","123456"));    
+    Agregar(new Chofer(90,"P","S","123456"));    
+    Agregar(new Chofer(80,"P","S","123456"));    
+    Agregar(new Chofer(70,"P","S","123456"));    
+    Agregar(new Chofer(60,"P","S","123456")); 
+    //this.CrearImagenArbol();
+    Agregar(new Chofer(50,"P","S","123456"));    
+    //this.CrearImagenArbol();
+    Agregar(new Chofer(40,"P","S","123456"));    
+    Agregar(new Chofer(30,"P","S","123456"));    
+    Agregar(new Chofer(20,"P","S","123456"));    
+    Agregar(new Chofer(10,"P","S","123456"));    
+    Agregar(new Chofer(12,"P","S","123456"));    
+    Agregar(new Chofer(14,"P","S","123456"));    
+    Agregar(new Chofer(16,"P","S","123456"));    
+    Agregar(new Chofer(18,"P","S","123456"));    
+    Agregar(new Chofer(23,"P","S","123456"));    
+    Agregar(new Chofer(56,"P","S","123456"));    
+    //this.CrearImagenArbol();
+    Agregar(new Chofer(55,"P","S","123456"));
+    //this.CrearImagenArbol();
+    Agregar(new Chofer(57,"P","S","123456"));
+    this.CrearImagenArbol();
+    Agregar(new Chofer(9999999,"P","S","123456"));    
+    Agregar(new Chofer(877878,"P","S","123456"));    
+    //this.CrearImagenArbol();
+    this.Eliminar(raiz, 55);
+    this.Eliminar(raiz, 50);
+    Agregar(new Chofer(50,"P","S","123456"));    
+    Agregar(new Chofer(55,"P","S","123456"));    
+    //this.CrearImagenArbol();
     
     }    
 
@@ -119,7 +166,7 @@ public final class ArbolAVL {
     if(((hizq)-(hder))==2){
       /*String dato=chofer.getId();
       String datoizq=raiz.getHijoIzq().getChofer().getId();*/
-     if(raiz.getHijoIzq().getHijoIzq()!=null){
+     if(chofer.getId()<raiz.getHijoIzq().getChofer().getId()){
      System.out.println(chofer.getId()+" Caso 1");
      raiz=RotarIzq(raiz);
      }
@@ -138,7 +185,7 @@ public final class ArbolAVL {
     if(((-hizq)+(hder))==2){
       /*String dato=chofer.getId();
       String datoder=raiz.getHijoDer().getChofer().getId();*/
-    if(raiz.getHijoDer().getHijoDer()!=null){
+    if(chofer.getId()>raiz.getHijoDer().getChofer().getId()){
     System.out.println(chofer.getId()+" Caso 3");
     raiz=RotarDer(raiz);
     }else{
@@ -211,6 +258,7 @@ public final class ArbolAVL {
     aux.setHijoIzq(raiz.getHijoIzq());}
     aux.setHijoDer(raiz.getHijoDer());
     i= aux;
+    i.setHijoIzq(EquilibrarTrasEliminar(i.getHijoIzq(),i.getChofer().getId()));
     } } 
     else{
     if(id<raiz.getChofer().getId()){

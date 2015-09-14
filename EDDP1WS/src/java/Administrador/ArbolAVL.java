@@ -8,14 +8,45 @@ public final class ArbolAVL {
 
     Nodo raiz=null;
     public ArbolAVL(){
-    //Agregar(new Administrador("b","b"));
-    //Agregar(new Administrador("za","za"));
-    //Agregar(new Administrador("c","za"));
-    //System.out.println("lllllllllllllllllllllllllll"+Buscar(getRaiz(),"j"));
-    //this.setRaiz(Eliminar(getRaiz(),"c"));
-    //this.setRaiz(EquilibrarTrasEliminar(getRaiz(),"c"));
-    //System.out.println(CodigoGrapvhiz(getRaiz(),null));
-    Agregar(new Administrador("francisemanuelchic@gmail.com","123456"));    
+    //Agregar(new Administrador("a","123456"));        
+    Agregar(new Administrador("b","123456"));        
+    Agregar(new Administrador("c","123456"));        
+    Agregar(new Administrador("d","123456"));        
+    Agregar(new Administrador("e","123456"));        
+    Agregar(new Administrador("f","123456"));    
+    Agregar(new Administrador("g","123456"));        
+    Agregar(new Administrador("h","123456"));
+    Agregar(new Administrador("i","123456"));
+    Agregar(new Administrador("j","123456"));
+    Agregar(new Administrador("baa","123456"));        
+    Agregar(new Administrador("caa","123456"));        
+    Agregar(new Administrador("daa","123456"));        
+    Agregar(new Administrador("eaa","123456"));        
+    Agregar(new Administrador("faa","123456"));    
+    Agregar(new Administrador("gaa","123456"));        
+    Agregar(new Administrador("haa","123456"));
+    Agregar(new Administrador("iaa","123456"));
+    Agregar(new Administrador("jaa","123456"));
+    Agregar(new Administrador("ja","123456"));
+    Agregar(new Administrador("ia","123456"));
+    Agregar(new Administrador("ha","123456"));
+    Agregar(new Administrador("ga","123456"));
+    Agregar(new Administrador("fa","123456"));
+    Agregar(new Administrador("ea","123456"));
+    Agregar(new Administrador("da","123456"));
+    Agregar(new Administrador("ca","123456"));
+    Agregar(new Administrador("ba","123456"));
+    Agregar(new Administrador("bc","123456"));
+    Agregar(new Administrador("be","123456"));
+    Agregar(new Administrador("bg","123456"));
+    Agregar(new Administrador("bi","123456"));
+    Agregar(new Administrador("bi","123456"));
+    Agregar(new Administrador("cd","123456"));
+    Agregar(new Administrador("ff","123456"));
+    Agregar(new Administrador("fg","123456"));
+    Agregar(new Administrador("fh","123456"));
+    
+      this.CrearImagenArbol();
     }    
 
     public Nodo getRaiz() {
@@ -205,6 +236,8 @@ public final class ArbolAVL {
     aux.setHijoIzq(raiz.getHijoIzq());}
     aux.setHijoDer(raiz.getHijoDer());
     i= aux;
+    i.setHijoIzq(EquilibrarTrasEliminar(i.getHijoIzq(),i.getAdministrador().getCorreo()));
+    
     } } 
     else{
     if(correo.compareTo(raiz.getAdministrador().getCorreo())<0){
@@ -224,6 +257,7 @@ public final class ArbolAVL {
     else{
     i=raiz;
     } }  }  }
+    //i=EquilibrarTrasEliminar(i,correo);
     return i;
     }
 public Nodo EquilibrarTrasEliminar(Nodo raiz,String correo){

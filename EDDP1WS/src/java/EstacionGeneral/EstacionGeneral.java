@@ -13,6 +13,12 @@ public class EstacionGeneral {
     int id;
     String nombre=null,contraseña=null;
 
+    public EstacionGeneral(int id,String nombre,String contraseña){
+    this.id=id;
+    this.nombre=nombre;
+    this.contraseña=contraseña;
+    }
+    
     public int getId() {
         return id;
     }

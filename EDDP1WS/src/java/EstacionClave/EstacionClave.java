@@ -4,6 +4,12 @@ package EstacionClave;
 public class EstacionClave {
     int id;
     String contraseña=null,nombre=null;
+    
+    public EstacionClave(int id,String contraseña,String nombre){
+    this.id=id;
+    this.contraseña=contraseña;
+    this.nombre=nombre;
+    }
 
     public int getId() {
         return id;
