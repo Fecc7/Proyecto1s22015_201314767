@@ -1,0 +1,16 @@
+digraph grafica { 
+ 
+rankdir=TB; 
+ 
+label= "Buses"  
+nodesep=0.2 
+node [shape=record];
+
+subgraph g{
+node0[label="<f0> 0|c123"];
+node1[label="<f0> 1|c123yuj"];
+node0->node1;
+node1->node0;
+}rank=same subgraph d{ 
+ }
+}

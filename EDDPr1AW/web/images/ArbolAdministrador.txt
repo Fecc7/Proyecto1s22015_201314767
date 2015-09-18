@@ -1,0 +1,5 @@
+digraph grafica{
+rankdir=TB;
+node [shape = record, style=filled, fillcolor=seashell2];nodo1457213604 [ label ="francischic@gmail.com"];
+
+}
