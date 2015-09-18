@@ -19,9 +19,58 @@ public class WSP1 {
     public static EstacionGeneral.ArbolAVL arbolestaciongeneral=new EstacionGeneral.ArbolAVL();
     public static boolean administradoractivo=false;
     public static boolean estacionclaveactivo=false;
-        public static boolean choferactivo=false;
+    public static boolean choferactivo=false;
     public static boolean estaciongeneralactivo=false;
+    public static Ruta.Rutas rutas=new Ruta.Rutas();
         
+    @WebMethod()
+    public void AgregarEstacionRuta(String ruta,int estacion,String tipo){
+    Ruta.Lista r=rutas.Existe(ruta);
+    if(r!=null){
+    if(tipo.equals("Estacion Clave")){
+    EstacionClave.Nodo clave=WSP1.arbolestacionclave.Buscar(WSP1.arbolestacionclave.getRaiz(), estacion);
+    if(clave!=null){
+    r.Agregar(clave.getEstacionClave());
+    }
+    }
+    else if(tipo.equals("Estacion General")){
+    EstacionGeneral.Nodo general=WSP1.arbolestaciongeneral.Buscar(WSP1.arbolestaciongeneral.getRaiz(), estacion);
+    if(general!=null){
+    r.Agregar(general.getEstacionGeneral());
+    }
+    }
+    }
+    }
+    
+    @WebMethod
+    public void AgregarRuta(String nombre){
+    rutas.AgregarRuta(new Ruta.Lista(nombre));
+    }
+    
+    @WebMethod
+    public void EliminarEstacionRuta(String ruta,int estacion,String tipo){
+    Ruta.Lista r=rutas.Existe(ruta);
+    if(r!=null){
+    Ruta.Nodo i=r.Buscar(estacion, tipo);
+    if(i!=null){
+    r.Eliminar(i);
+    }
+    }
+    }
+    
+    @WebMethod 
+    public void EliminarRuta(String nombre){
+    rutas.Eliminar(nombre);
+    }
+    
+    @WebMethod
+    public void GraficarRuta(String ruta){
+    Ruta.Lista r=rutas.Existe(ruta);
+    if(r!=null){
+    r.GraficarLista();
+    }
+    }
+    
     @WebMethod()
     public void DibujarArboles(){
     WSP1.arboladministrador.CrearImagenArbol();
