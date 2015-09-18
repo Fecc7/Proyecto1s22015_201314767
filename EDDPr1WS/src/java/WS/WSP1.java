@@ -4,7 +4,10 @@ import java.io.IOException;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
-
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 @WebService(serviceName = "WSP1")
 public class WSP1 {
@@ -18,13 +21,14 @@ public class WSP1 {
     public static boolean estacionclaveactivo=false;
         public static boolean choferactivo=false;
     public static boolean estaciongeneralactivo=false;
-    
+        
     @WebMethod()
     public void DibujarArboles(){
     WSP1.arboladministrador.CrearImagenArbol();
     WSP1.arbolchofer.CrearImagenArbol();
     WSP1.arbolestacionclave.CrearImagenArbol();
     WSP1.arbolestaciongeneral.CrearImagenArbol();
+    WSP1.listabus.GraficarLista();
     }
     
     @WebMethod()
@@ -162,6 +166,15 @@ public class WSP1 {
     }
     
     @WebMethod()
+    public boolean AgregarBus(String id){
+    Bus.Bus nuevo=new Bus.Bus(id);
+    WSP1.listabus.Agregar(nuevo);
+    WSP1.listabus.OrdenarBurbuja();
+    WSP1.listabus.GraficarLista();
+    return true;
+    }
+    
+    @WebMethod()
     public void EliminarAdministrador(String correo){
     if(correo!=null){
     WSP1.arboladministrador.EliminarNodo(correo);
@@ -185,6 +198,12 @@ public class WSP1 {
     public void EliminarEstacionGeneral(int id){
     WSP1.arbolestaciongeneral.EliminarNodo(id);
     WSP1.arbolestaciongeneral.CrearImagenArbol();
+    }
+    
+    @WebMethod()
+    public void EliminarBus(String id){
+    WSP1.listabus.Eliminar(WSP1.listabus.Buscar(id));
+    WSP1.listabus.GraficarLista();
     }
     
 }
