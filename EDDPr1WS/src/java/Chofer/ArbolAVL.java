@@ -68,6 +68,24 @@ public final class ArbolAVL {
     return r;
     }
     
+    public Nodo Buscar(Nodo raiz,int id){
+    Nodo r=null;
+    System.out.println("Metodo Buscar");
+    if(raiz!=null){
+        System.out.println("Entro");
+        System.out.println(raiz.getChofer().getId());
+        System.out.println(id);
+    if(raiz.getChofer().getId()==(id)){
+    r=raiz;
+    }else{
+    if(id<raiz.getChofer().getId()){
+    r=Buscar(raiz.getHijoIzq(),id);
+    }else{
+    r=Buscar(raiz.getHijoDer(),id);
+    }}}
+    return r;
+    }
+    
     public Nodo RotarIzq(Nodo raiz){
     Nodo aux=raiz.getHijoIzq();
     raiz.setHijoIzq(aux.getHijoDer());

@@ -14,12 +14,31 @@ public class Chofer {
     String nombre=null;
     String apellido=null;
     String contraseña=null;
+    String correo=null;
     public Chofer(int id,String nombre,String apellido,String contraseña){
     this.id=id;
     this.nombre=nombre;
     this.apellido=apellido;
     this.contraseña=contraseña;
     }
+    
+     public Chofer(int id,String nombre,String apellido,String contraseña,String correo){
+    this.id=id;
+    this.nombre=nombre;
+    this.apellido=apellido;
+    this.contraseña=contraseña;
+    this.correo=correo;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+     
+     
 
     public int getId() {
         return id;

@@ -21,6 +21,14 @@ public class Lista {
     public Lista(String nombre){
     this.nombre=nombre;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
     
     public void Agregar(EstacionClave.EstacionClave o){
     if(Buscar(o.getId(),"Estacion Clave")==null){    
@@ -30,7 +38,7 @@ public class Lista {
     ultimo=nuevo;
     }
     else{
-    Nodo auxiliar = null;
+     Nodo auxiliar = null;
     for(Nodo i=inicio;i!=null;i=i.siguiente){
     auxiliar=i;
     }
@@ -60,15 +68,25 @@ public class Lista {
     
     public Nodo Buscar(int id,String tipo){
     Nodo resultado=null;
+    Nodo resultado2=null;
     for(Nodo i=getInicio();i!=null;i=i.getSiguiente()){
-    if(tipo.equals("Estacion Clave")){
-    if(i.getObjeto().getId()==id){
-    resultado=i;
-    }}else if(tipo.equals("Estacion General")){
-    if(i.getObjeto2().getId()==id){
-    resultado=i;  }}
+        if(tipo.equals("Estacion Clave")){
+                if(i.getObjeto()!=null){
+                if(i.getObjeto().getId()==id){
+                    resultado=i;
+                } }
+        }else{
+                if(i.getObjeto2()!=null){
+                if(i.getObjeto2().getId()==id){
+                resultado2=i;  }}
+        }    
     }
+    if(tipo.equals("Estacion Clave")){
     return resultado;
+    }
+    else{
+    return resultado2;
+    }
     }
     
     
@@ -119,7 +137,7 @@ public class Lista {
     }
     
     public void GraficarLista(){
-    String tipo="Buses";
+    String tipo=nombre;
     Nodo inicio=null;
     inicio=this.getInicio();
    
@@ -136,10 +154,14 @@ public class Lista {
     
     for(Nodo i=this.getInicio();i!=null;i=i.getSiguiente()){
     if(i.getObjeto()!=null){    
-    nodos+="node"+x+"[label=\"<f0> "+x+"|"+i.getObjeto().getId()+"\"];\n";}
-    else if(i.getObjeto2()!=null){
-    nodos+="node"+x+"[label=\"<f0> "+x+"|"+i.getObjeto2().getId()+"\"];\n";}
+    nodos+="node"+x+"[label=\"<f0> "+x+"|"+i.getObjeto().getId()+"\"];\n";
     x++;
+    }
+    else if(i.getObjeto2()!=null){
+    nodos+="node"+x+"[label=\"<f0> "+x+"|"+i.getObjeto2().getId()+"\"];\n";
+    x++;
+    }
+    
     }
     x=0;
     
@@ -160,7 +182,7 @@ public class Lista {
 FileWriter fichero=null;
     PrintWriter pw=null;
     try{
-    fichero=new FileWriter("C:\\Users\\Francis\\Documents\\GitHub\\Proyecto1s22015_201314767\\EDDPr1AW\\web\\images\\Ruta"+nombre+".txt");
+    fichero=new FileWriter("C:\\Users\\Francis\\Documents\\GitHub\\Proyecto1s22015_201314767\\EDDPr1AW\\web\\images\\Ruta.txt");
     //fichero=new FileWriter("/media/francis/D844D27F44D26034/Users/Francis/Mis documentos/GitHub/Proyecto1s22015_201314767/EDDPr1AW/web/images/lista.txt");        
     pw=new PrintWriter(fichero);
     pw.print(nodos);
@@ -180,9 +202,9 @@ try {
       
       String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
       
-      String fileInputPath = "C:\\Users\\Francis\\Documents\\GitHub\\Proyecto1s22015_201314767\\EDDPr1AW\\web\\images\\Ruta"+nombre+".txt";
+      String fileInputPath = "C:\\Users\\Francis\\Documents\\GitHub\\Proyecto1s22015_201314767\\EDDPr1AW\\web\\images\\Ruta.txt";
       //String fileInputPath="/media/francis/D844D27F44D26034/Users/Francis/Mis documentos/GitHub/Proyecto1s22015_201314767/EDDPr1AW/web/images/lista.txt";
-      String fileOutputPath = "C:\\Users\\Francis\\Documents\\GitHub\\Proyecto1s22015_201314767\\EDDPr1AW\\web\\images\\Ruta"+nombre+".jpg";
+      String fileOutputPath = "C:\\Users\\Francis\\Documents\\GitHub\\Proyecto1s22015_201314767\\EDDPr1AW\\web\\images\\Ruta.jpg";
       //String fileOutputPath="/media/francis/D844D27F44D26034/Users/Francis/Mis documentos/GitHub/Proyecto1s22015_201314767/EDDPr1AW/web/images/"+tipo+".jpg";
       String tParam = "-Tjpg";
       String tOParam = "-o";
