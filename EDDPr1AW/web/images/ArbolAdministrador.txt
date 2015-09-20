@@ -1,5 +1,15 @@
 digraph grafica{
 rankdir=TB;
-node [shape = record, style=filled, fillcolor=seashell2];nodo1457213604 [ label ="francischic@gmail.com"];
+node [shape = record, style=filled, fillcolor=seashell2];nodo1364421061 [ label ="d@hotmail.com,123"];
+nodo19764717 [ label ="b@outlook.es,123"];
+nodo1364421061 -> nodo19764717;
+nodo601778450 [ label ="a@gmail.com,123"];
+nodo19764717 -> nodo601778450;
+nodo1302843028 [ label ="c@gmail.com,123"];
+nodo19764717 -> nodo1302843028;
+nodo1951227075 [ label ="f@hotmail.com,123"];
+nodo1364421061 -> nodo1951227075;
+nodo206956247 [ label ="f@gmail.com,123"];
+nodo1951227075 -> nodo206956247;
 
 }

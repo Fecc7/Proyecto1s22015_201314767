@@ -44,6 +44,10 @@
 
 <xs:element name="EliminarAdministradorResponse" type="tns:EliminarAdministradorResponse"/>
 
+<xs:element name="EliminarAsignacion" type="tns:EliminarAsignacion"/>
+
+<xs:element name="EliminarAsignacionResponse" type="tns:EliminarAsignacionResponse"/>
+
 <xs:element name="EliminarBus" type="tns:EliminarBus"/>
 
 <xs:element name="EliminarBusResponse" type="tns:EliminarBusResponse"/>
@@ -68,6 +72,10 @@
 
 <xs:element name="EliminarRutaResponse" type="tns:EliminarRutaResponse"/>
 
+<xs:element name="GraficarBusesDeChofer" type="tns:GraficarBusesDeChofer"/>
+
+<xs:element name="GraficarBusesDeChoferResponse" type="tns:GraficarBusesDeChoferResponse"/>
+
 <xs:element name="GraficarRuta" type="tns:GraficarRuta"/>
 
 <xs:element name="GraficarRutaResponse" type="tns:GraficarRutaResponse"/>
@@ -87,6 +95,18 @@
 <xs:element name="LoginEstacionGeneral" type="tns:LoginEstacionGeneral"/>
 
 <xs:element name="LoginEstacionGeneralResponse" type="tns:LoginEstacionGeneralResponse"/>
+
+<xs:element name="ModificarAdmi" type="tns:ModificarAdmi"/>
+
+<xs:element name="ModificarAdmiResponse" type="tns:ModificarAdmiResponse"/>
+
+<xs:element name="ModificarChofer" type="tns:ModificarChofer"/>
+
+<xs:element name="ModificarChoferResponse" type="tns:ModificarChoferResponse"/>
+
+<xs:element name="ModificarEstacion" type="tns:ModificarEstacion"/>
+
+<xs:element name="ModificarEstacionResponse" type="tns:ModificarEstacionResponse"/>
 
 <xs:element name="UsuarioAdministradorActivo" type="tns:UsuarioAdministradorActivo"/>
 
@@ -112,6 +132,18 @@
 <xs:sequence/>
 </xs:complexType>
 
+<xs:complexType name="AgregarBus">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AgregarBusResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="AgregarEstacionGeneral">
 <xs:sequence>
 <xs:element name="arg0" type="xs:int"/>
@@ -126,16 +158,18 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="AgregarBus">
+<xs:complexType name="ModificarChofer">
 <xs:sequence>
-<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:int"/>
+<xs:element name="arg2" type="xs:string" minOccurs="0"/>
+<xs:element name="arg3" type="xs:string" minOccurs="0"/>
+<xs:element name="arg4" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="AgregarBusResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:boolean"/>
-</xs:sequence>
+<xs:complexType name="ModificarChoferResponse">
+<xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="EliminarEstacionClave">
@@ -158,6 +192,19 @@
 <xs:sequence/>
 </xs:complexType>
 
+<xs:complexType name="ModificarAdmi">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+<xs:element name="arg2" type="xs:string" minOccurs="0"/>
+<xs:element name="arg3" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarAdmiResponse">
+<xs:sequence/>
+</xs:complexType>
+
 <xs:complexType name="AgregarRuta">
 <xs:sequence>
 <xs:element name="arg0" type="xs:string" minOccurs="0"/>
@@ -165,16 +212,6 @@
 </xs:complexType>
 
 <xs:complexType name="AgregarRutaResponse">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="EliminarRuta">
-<xs:sequence>
-<xs:element name="arg0" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="EliminarRutaResponse">
 <xs:sequence/>
 </xs:complexType>
 
@@ -187,6 +224,16 @@
 </xs:complexType>
 
 <xs:complexType name="EliminarEstacionRutaResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="EliminarRuta">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarRutaResponse">
 <xs:sequence/>
 </xs:complexType>
 
@@ -323,6 +370,14 @@
 <xs:sequence/>
 </xs:complexType>
 
+<xs:complexType name="CerrarSesion">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="CerrarSesionResponse">
+<xs:sequence/>
+</xs:complexType>
+
 <xs:complexType name="LoginEstacionClave">
 <xs:sequence>
 <xs:element name="arg0" type="xs:int"/>
@@ -334,14 +389,6 @@
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="CerrarSesion">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="CerrarSesionResponse">
-<xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="AgregarChofer">
@@ -379,6 +426,21 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="EliminarAsignacion">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+<xs:element name="arg2" type="xs:int"/>
+<xs:element name="arg3" type="xs:string" minOccurs="0"/>
+<xs:element name="arg4" type="xs:string" minOccurs="0"/>
+<xs:element name="arg5" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarAsignacionResponse">
+<xs:sequence/>
+</xs:complexType>
+
 <xs:complexType name="EliminarChofer">
 <xs:sequence>
 <xs:element name="arg0" type="xs:int"/>
@@ -386,6 +448,20 @@
 </xs:complexType>
 
 <xs:complexType name="EliminarChoferResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ModificarEstacion">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+<xs:element name="arg2" type="xs:int"/>
+<xs:element name="arg3" type="xs:string" minOccurs="0"/>
+<xs:element name="arg4" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarEstacionResponse">
 <xs:sequence/>
 </xs:complexType>
 
@@ -397,5 +473,15 @@
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GraficarBusesDeChofer">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GraficarBusesDeChoferResponse">
+<xs:sequence/>
 </xs:complexType>
 </xs:schema>

@@ -1,5 +1,4 @@
 digraph grafica{
 rankdir=TB;
-node [shape = record, style=filled, fillcolor=seashell2];nodo110 [ label ="110"];
-
+node [shape = record, style=filled, fillcolor=seashell2];
 }

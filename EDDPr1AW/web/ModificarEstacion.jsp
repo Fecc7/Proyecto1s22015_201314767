@@ -1,14 +1,13 @@
 <%-- 
-    Document   : ModificarChofer
-    Created on : 15-sep-2015, 12:24:07
+    Document   : ModificarEstacionClave
+    Created on : 15-sep-2015, 12:24:36
     Author     : Francis
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-		<title>Crear Chofer</title>
+		<title>Crear Estacion</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
@@ -22,8 +21,8 @@
 		<script src="js/tms_presets.js" type="text/javascript"></script>
 		<script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
     </head>
- <body>
-             <div class="extra">
+    <body>
+                <div class="extra">
             <div class="main">
                 <br><br><br>
 <!--==============================header=================================-->
@@ -35,57 +34,59 @@
 				<li id="PestañaLogin"><a  href="Inicio.jsp">Cerrar Sesion</a></li>
 				</ul>
                                 </nav>
-                        </header>
-        
-    <br><br><br><form name="FormularioCrearEstacion">
-        <span class="text-form">Id:</span><input type="text" name="IdChofer" value="" /><br>
-        <span class="text-form">Id nuevo:</span><input type="text" name="IdChofern" value="" /><br>
-        <span class="text-form">contraseña nuevo: </span><input type="password" name="password" value="" /><br>
-        <span class="text-form">Nombre nuevo:</span><input type="text" name="NombreChofer" value="" /><br>
-        <span class="text-form">Apellido nuevo:</span><input type="text" name="ApellidoChofer" value="" /><br>
-        <input type="submit" value="Modificar" /><br>
-    
+                        </header><br><br>
+        <form action="CrearEstacion.jsp">
+        <span class="text-form">Tipo de Estaccion: </span><select name="TipoEstacion">
+        <option>Clave</option>
+        <option>General</option>
+        </select><br><br><br>
+        <span class="text-form">Id:</span><input type="text" name="Id" value="" /><br>
+        <span class="text-form">Id nuevo:</span><input type="text" name="IdEstacion" value="" /><br>
+        <span class="text-form">contraseña nueva: </span><input type="password" name="password" value="" /><br>
+        <span class="text-form">Nombre nuevo: </span><input type="text" name="Nombre" value="" /><br>
+        <input type="submit" value="Agregar" />
+            <%-- start web service invocation --%><hr/>
     <%
     try {
 	ws.WSP1_Service service = new ws.WSP1_Service();
 	ws.WSP1 port = service.getWSP1Port();
 	 // TODO initialize WS operation arguments here
+	int arg0 = 0;
+        int id=0;
+	java.lang.String arg1 = request.getParameter("password");
+	java.lang.String arg2 = request.getParameter("Nombre");
+        java.lang.String tipo= request.getParameter("TipoEstacion");
         int numero=0;
         int numero2=0;
         boolean isnumero=false;
-        int arg0 = 0;
-        int idn=0;
-        java.lang.String arg1 = request.getParameter("NombreChofer");
-	java.lang.String arg2 = request.getParameter("ApellidoChofer");
-	java.lang.String arg3 = request.getParameter("password");
-        if(arg1!=null && arg2!=null && arg3!=null){
         try{
-        numero=Integer.parseInt(request.getParameter("IdChofer"));
-        numero2=Integer.parseInt(request.getParameter("IdChofer2"));
+        numero=Integer.parseInt(request.getParameter("IdEstacion"));
+        numero2=Integer.parseInt(request.getParameter("Id"));
         isnumero=true;
         }catch(NumberFormatException nfe){
         isnumero=false;
         }
-        
-	if(isnumero==true){
-        arg0 = numero;
-        idn=numero2;
-        port.modificarChofer(arg0, idn, arg1, arg2, arg3);
+        if(isnumero==true && arg1!=null && arg2!=null && tipo!=null){
+        arg0=numero;
+        id=numero2;
+        if(tipo.equals("Clave")){
+        port.modificarEstacion(id, "Estacion Clave", arg0, arg2, arg1);
+        }else{
+        port.modificarEstacion(id, "Estacion General", arg0, arg2, arg1);
         }
         }
-        
-           } catch (Exception ex) {
-	// TODO handle custom exceptions here
-    }
-        
-        
-	
+        out.println(tipo+arg0+arg1+arg2);
 	// TODO process result here
 	
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
     %>
+    <%-- end web service invocation --%><hr/>
     
-
     </form>
     </div></div>        
+
+    
     </body>
 </html>

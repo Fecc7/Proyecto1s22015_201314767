@@ -4,11 +4,95 @@
 <xsd:import namespace="http://WS/" schemaLocation="http://localhost:8080/EDDPr1WS/WSP1?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="EliminarBus">
-<part name="parameters" element="tns:EliminarBus"/>
+<message name="AgregarBus">
+<part name="parameters" element="tns:AgregarBus"/>
 </message>
-<message name="EliminarBusResponse">
-<part name="parameters" element="tns:EliminarBusResponse"/>
+<message name="AgregarBusResponse">
+<part name="parameters" element="tns:AgregarBusResponse"/>
+</message>
+<message name="ModificarEstacion">
+<part name="parameters" element="tns:ModificarEstacion"/>
+</message>
+<message name="ModificarEstacionResponse">
+<part name="parameters" element="tns:ModificarEstacionResponse"/>
+</message>
+<message name="GraficarBusesDeChofer">
+<part name="parameters" element="tns:GraficarBusesDeChofer"/>
+</message>
+<message name="GraficarBusesDeChoferResponse">
+<part name="parameters" element="tns:GraficarBusesDeChoferResponse"/>
+</message>
+<message name="EliminarAsignacion">
+<part name="parameters" element="tns:EliminarAsignacion"/>
+</message>
+<message name="EliminarAsignacionResponse">
+<part name="parameters" element="tns:EliminarAsignacionResponse"/>
+</message>
+<message name="AgregarEstacionRuta">
+<part name="parameters" element="tns:AgregarEstacionRuta"/>
+</message>
+<message name="AgregarEstacionRutaResponse">
+<part name="parameters" element="tns:AgregarEstacionRutaResponse"/>
+</message>
+<message name="EliminarEstacionRuta">
+<part name="parameters" element="tns:EliminarEstacionRuta"/>
+</message>
+<message name="EliminarEstacionRutaResponse">
+<part name="parameters" element="tns:EliminarEstacionRutaResponse"/>
+</message>
+<message name="isChoferactivo">
+<part name="parameters" element="tns:isChoferactivo"/>
+</message>
+<message name="isChoferactivoResponse">
+<part name="parameters" element="tns:isChoferactivoResponse"/>
+</message>
+<message name="LoginChofer">
+<part name="parameters" element="tns:LoginChofer"/>
+</message>
+<message name="LoginChoferResponse">
+<part name="parameters" element="tns:LoginChoferResponse"/>
+</message>
+<message name="CerrarSesion">
+<part name="parameters" element="tns:CerrarSesion"/>
+</message>
+<message name="CerrarSesionResponse">
+<part name="parameters" element="tns:CerrarSesionResponse"/>
+</message>
+<message name="AgregarChofer">
+<part name="parameters" element="tns:AgregarChofer"/>
+</message>
+<message name="AgregarChoferResponse">
+<part name="parameters" element="tns:AgregarChoferResponse"/>
+</message>
+<message name="EliminarChofer">
+<part name="parameters" element="tns:EliminarChofer"/>
+</message>
+<message name="EliminarChoferResponse">
+<part name="parameters" element="tns:EliminarChoferResponse"/>
+</message>
+<message name="DibujarArboles">
+<part name="parameters" element="tns:DibujarArboles"/>
+</message>
+<message name="DibujarArbolesResponse">
+<part name="parameters" element="tns:DibujarArbolesResponse"/>
+</message>
+<message name="ModificarAdmi">
+<part name="parameters" element="tns:ModificarAdmi"/>
+</message>
+<message name="ModificarAdmiResponse">
+<part name="parameters" element="tns:ModificarAdmiResponse"/>
+</message>
+<message name="ModificarChofer">
+<part name="parameters" element="tns:ModificarChofer"/>
+</message>
+<message name="ModificarChoferResponse">
+<part name="parameters" element="tns:ModificarChoferResponse"/>
+</message>
+<message name="Asignar">
+<part name="parameters" element="tns:Asignar"/>
+</message>
+<message name="AsignarResponse">
+<part name="parameters" element="tns:AsignarResponse"/>
 </message>
 <message name="AgregarRuta">
 <part name="parameters" element="tns:AgregarRuta"/>
@@ -28,11 +112,11 @@
 <message name="GraficarRutaResponse">
 <part name="parameters" element="tns:GraficarRutaResponse"/>
 </message>
-<message name="Asignar">
-<part name="parameters" element="tns:Asignar"/>
+<message name="EliminarBus">
+<part name="parameters" element="tns:EliminarBus"/>
 </message>
-<message name="AsignarResponse">
-<part name="parameters" element="tns:AsignarResponse"/>
+<message name="EliminarBusResponse">
+<part name="parameters" element="tns:EliminarBusResponse"/>
 </message>
 <message name="UsuarioAdministradorActivo">
 <part name="parameters" element="tns:UsuarioAdministradorActivo"/>
@@ -106,64 +190,66 @@
 <message name="EliminarEstacionGeneralResponse">
 <part name="parameters" element="tns:EliminarEstacionGeneralResponse"/>
 </message>
-<message name="DibujarArboles">
-<part name="parameters" element="tns:DibujarArboles"/>
-</message>
-<message name="DibujarArbolesResponse">
-<part name="parameters" element="tns:DibujarArbolesResponse"/>
-</message>
-<message name="AgregarEstacionRuta">
-<part name="parameters" element="tns:AgregarEstacionRuta"/>
-</message>
-<message name="AgregarEstacionRutaResponse">
-<part name="parameters" element="tns:AgregarEstacionRutaResponse"/>
-</message>
-<message name="EliminarEstacionRuta">
-<part name="parameters" element="tns:EliminarEstacionRuta"/>
-</message>
-<message name="EliminarEstacionRutaResponse">
-<part name="parameters" element="tns:EliminarEstacionRutaResponse"/>
-</message>
-<message name="AgregarBus">
-<part name="parameters" element="tns:AgregarBus"/>
-</message>
-<message name="AgregarBusResponse">
-<part name="parameters" element="tns:AgregarBusResponse"/>
-</message>
-<message name="isChoferactivo">
-<part name="parameters" element="tns:isChoferactivo"/>
-</message>
-<message name="isChoferactivoResponse">
-<part name="parameters" element="tns:isChoferactivoResponse"/>
-</message>
-<message name="LoginChofer">
-<part name="parameters" element="tns:LoginChofer"/>
-</message>
-<message name="LoginChoferResponse">
-<part name="parameters" element="tns:LoginChoferResponse"/>
-</message>
-<message name="CerrarSesion">
-<part name="parameters" element="tns:CerrarSesion"/>
-</message>
-<message name="CerrarSesionResponse">
-<part name="parameters" element="tns:CerrarSesionResponse"/>
-</message>
-<message name="AgregarChofer">
-<part name="parameters" element="tns:AgregarChofer"/>
-</message>
-<message name="AgregarChoferResponse">
-<part name="parameters" element="tns:AgregarChoferResponse"/>
-</message>
-<message name="EliminarChofer">
-<part name="parameters" element="tns:EliminarChofer"/>
-</message>
-<message name="EliminarChoferResponse">
-<part name="parameters" element="tns:EliminarChoferResponse"/>
-</message>
 <portType name="WSP1">
-<operation name="EliminarBus">
-<input wsam:Action="http://WS/WSP1/EliminarBusRequest" message="tns:EliminarBus"/>
-<output wsam:Action="http://WS/WSP1/EliminarBusResponse" message="tns:EliminarBusResponse"/>
+<operation name="AgregarBus">
+<input wsam:Action="http://WS/WSP1/AgregarBusRequest" message="tns:AgregarBus"/>
+<output wsam:Action="http://WS/WSP1/AgregarBusResponse" message="tns:AgregarBusResponse"/>
+</operation>
+<operation name="ModificarEstacion">
+<input wsam:Action="http://WS/WSP1/ModificarEstacionRequest" message="tns:ModificarEstacion"/>
+<output wsam:Action="http://WS/WSP1/ModificarEstacionResponse" message="tns:ModificarEstacionResponse"/>
+</operation>
+<operation name="GraficarBusesDeChofer">
+<input wsam:Action="http://WS/WSP1/GraficarBusesDeChoferRequest" message="tns:GraficarBusesDeChofer"/>
+<output wsam:Action="http://WS/WSP1/GraficarBusesDeChoferResponse" message="tns:GraficarBusesDeChoferResponse"/>
+</operation>
+<operation name="EliminarAsignacion">
+<input wsam:Action="http://WS/WSP1/EliminarAsignacionRequest" message="tns:EliminarAsignacion"/>
+<output wsam:Action="http://WS/WSP1/EliminarAsignacionResponse" message="tns:EliminarAsignacionResponse"/>
+</operation>
+<operation name="AgregarEstacionRuta">
+<input wsam:Action="http://WS/WSP1/AgregarEstacionRutaRequest" message="tns:AgregarEstacionRuta"/>
+<output wsam:Action="http://WS/WSP1/AgregarEstacionRutaResponse" message="tns:AgregarEstacionRutaResponse"/>
+</operation>
+<operation name="EliminarEstacionRuta">
+<input wsam:Action="http://WS/WSP1/EliminarEstacionRutaRequest" message="tns:EliminarEstacionRuta"/>
+<output wsam:Action="http://WS/WSP1/EliminarEstacionRutaResponse" message="tns:EliminarEstacionRutaResponse"/>
+</operation>
+<operation name="isChoferactivo">
+<input wsam:Action="http://WS/WSP1/isChoferactivoRequest" message="tns:isChoferactivo"/>
+<output wsam:Action="http://WS/WSP1/isChoferactivoResponse" message="tns:isChoferactivoResponse"/>
+</operation>
+<operation name="LoginChofer">
+<input wsam:Action="http://WS/WSP1/LoginChoferRequest" message="tns:LoginChofer"/>
+<output wsam:Action="http://WS/WSP1/LoginChoferResponse" message="tns:LoginChoferResponse"/>
+</operation>
+<operation name="CerrarSesion">
+<input wsam:Action="http://WS/WSP1/CerrarSesionRequest" message="tns:CerrarSesion"/>
+<output wsam:Action="http://WS/WSP1/CerrarSesionResponse" message="tns:CerrarSesionResponse"/>
+</operation>
+<operation name="AgregarChofer">
+<input wsam:Action="http://WS/WSP1/AgregarChoferRequest" message="tns:AgregarChofer"/>
+<output wsam:Action="http://WS/WSP1/AgregarChoferResponse" message="tns:AgregarChoferResponse"/>
+</operation>
+<operation name="EliminarChofer">
+<input wsam:Action="http://WS/WSP1/EliminarChoferRequest" message="tns:EliminarChofer"/>
+<output wsam:Action="http://WS/WSP1/EliminarChoferResponse" message="tns:EliminarChoferResponse"/>
+</operation>
+<operation name="DibujarArboles">
+<input wsam:Action="http://WS/WSP1/DibujarArbolesRequest" message="tns:DibujarArboles"/>
+<output wsam:Action="http://WS/WSP1/DibujarArbolesResponse" message="tns:DibujarArbolesResponse"/>
+</operation>
+<operation name="ModificarAdmi">
+<input wsam:Action="http://WS/WSP1/ModificarAdmiRequest" message="tns:ModificarAdmi"/>
+<output wsam:Action="http://WS/WSP1/ModificarAdmiResponse" message="tns:ModificarAdmiResponse"/>
+</operation>
+<operation name="ModificarChofer">
+<input wsam:Action="http://WS/WSP1/ModificarChoferRequest" message="tns:ModificarChofer"/>
+<output wsam:Action="http://WS/WSP1/ModificarChoferResponse" message="tns:ModificarChoferResponse"/>
+</operation>
+<operation name="Asignar">
+<input wsam:Action="http://WS/WSP1/AsignarRequest" message="tns:Asignar"/>
+<output wsam:Action="http://WS/WSP1/AsignarResponse" message="tns:AsignarResponse"/>
 </operation>
 <operation name="AgregarRuta">
 <input wsam:Action="http://WS/WSP1/AgregarRutaRequest" message="tns:AgregarRuta"/>
@@ -177,9 +263,9 @@
 <input wsam:Action="http://WS/WSP1/GraficarRutaRequest" message="tns:GraficarRuta"/>
 <output wsam:Action="http://WS/WSP1/GraficarRutaResponse" message="tns:GraficarRutaResponse"/>
 </operation>
-<operation name="Asignar">
-<input wsam:Action="http://WS/WSP1/AsignarRequest" message="tns:Asignar"/>
-<output wsam:Action="http://WS/WSP1/AsignarResponse" message="tns:AsignarResponse"/>
+<operation name="EliminarBus">
+<input wsam:Action="http://WS/WSP1/EliminarBusRequest" message="tns:EliminarBus"/>
+<output wsam:Action="http://WS/WSP1/EliminarBusResponse" message="tns:EliminarBusResponse"/>
 </operation>
 <operation name="UsuarioAdministradorActivo">
 <input wsam:Action="http://WS/WSP1/UsuarioAdministradorActivoRequest" message="tns:UsuarioAdministradorActivo"/>
@@ -229,46 +315,136 @@
 <input wsam:Action="http://WS/WSP1/EliminarEstacionGeneralRequest" message="tns:EliminarEstacionGeneral"/>
 <output wsam:Action="http://WS/WSP1/EliminarEstacionGeneralResponse" message="tns:EliminarEstacionGeneralResponse"/>
 </operation>
-<operation name="DibujarArboles">
-<input wsam:Action="http://WS/WSP1/DibujarArbolesRequest" message="tns:DibujarArboles"/>
-<output wsam:Action="http://WS/WSP1/DibujarArbolesResponse" message="tns:DibujarArbolesResponse"/>
-</operation>
-<operation name="AgregarEstacionRuta">
-<input wsam:Action="http://WS/WSP1/AgregarEstacionRutaRequest" message="tns:AgregarEstacionRuta"/>
-<output wsam:Action="http://WS/WSP1/AgregarEstacionRutaResponse" message="tns:AgregarEstacionRutaResponse"/>
-</operation>
-<operation name="EliminarEstacionRuta">
-<input wsam:Action="http://WS/WSP1/EliminarEstacionRutaRequest" message="tns:EliminarEstacionRuta"/>
-<output wsam:Action="http://WS/WSP1/EliminarEstacionRutaResponse" message="tns:EliminarEstacionRutaResponse"/>
-</operation>
-<operation name="AgregarBus">
-<input wsam:Action="http://WS/WSP1/AgregarBusRequest" message="tns:AgregarBus"/>
-<output wsam:Action="http://WS/WSP1/AgregarBusResponse" message="tns:AgregarBusResponse"/>
-</operation>
-<operation name="isChoferactivo">
-<input wsam:Action="http://WS/WSP1/isChoferactivoRequest" message="tns:isChoferactivo"/>
-<output wsam:Action="http://WS/WSP1/isChoferactivoResponse" message="tns:isChoferactivoResponse"/>
-</operation>
-<operation name="LoginChofer">
-<input wsam:Action="http://WS/WSP1/LoginChoferRequest" message="tns:LoginChofer"/>
-<output wsam:Action="http://WS/WSP1/LoginChoferResponse" message="tns:LoginChoferResponse"/>
-</operation>
-<operation name="CerrarSesion">
-<input wsam:Action="http://WS/WSP1/CerrarSesionRequest" message="tns:CerrarSesion"/>
-<output wsam:Action="http://WS/WSP1/CerrarSesionResponse" message="tns:CerrarSesionResponse"/>
-</operation>
-<operation name="AgregarChofer">
-<input wsam:Action="http://WS/WSP1/AgregarChoferRequest" message="tns:AgregarChofer"/>
-<output wsam:Action="http://WS/WSP1/AgregarChoferResponse" message="tns:AgregarChoferResponse"/>
-</operation>
-<operation name="EliminarChofer">
-<input wsam:Action="http://WS/WSP1/EliminarChoferRequest" message="tns:EliminarChofer"/>
-<output wsam:Action="http://WS/WSP1/EliminarChoferResponse" message="tns:EliminarChoferResponse"/>
-</operation>
 </portType>
 <binding name="WSP1PortBinding" type="tns:WSP1">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="EliminarBus">
+<operation name="AgregarBus">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ModificarEstacion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GraficarBusesDeChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="EliminarAsignacion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AgregarEstacionRuta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="EliminarEstacionRuta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="isChoferactivo">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="LoginChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="CerrarSesion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AgregarChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="EliminarChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="DibujarArboles">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ModificarAdmi">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ModificarChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="Asignar">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -304,7 +480,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="Asignar">
+<operation name="EliminarBus">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -413,87 +589,6 @@
 </output>
 </operation>
 <operation name="EliminarEstacionGeneral">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="DibujarArboles">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="AgregarEstacionRuta">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="EliminarEstacionRuta">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="AgregarBus">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="isChoferactivo">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="LoginChofer">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="CerrarSesion">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="AgregarChofer">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="EliminarChofer">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
