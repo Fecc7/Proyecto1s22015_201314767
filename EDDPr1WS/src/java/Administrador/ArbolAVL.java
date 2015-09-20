@@ -281,18 +281,18 @@ public Nodo EquilibrarTrasEliminar(Nodo raiz,String correo){
     if(na<0){na=na*(-1);}
     
     if(Padre==null){
-    salida+="nodo"+(na)+" [ label =\""+actual.getAdministrador().getCorreo()+"\"];\n";
+    salida+="nodo"+(na)+" [ label =\""+actual.getAdministrador().getCorreo()+","+actual.getAdministrador().getContraseña()+"\"];\n";
     numero++;
     }else{
     int np=Padre.getAdministrador().getCorreo().hashCode();    
     if(np<0){np=np*(-1);}
     if(Padre.getHijoIzq()==actual){
-    salida+="nodo"+(na)+" [ label =\""+actual.getAdministrador().getCorreo()+"\"];\n";   
+    salida+="nodo"+(na)+" [ label =\""+actual.getAdministrador().getCorreo()+","+actual.getAdministrador().getContraseña()+"\"];\n";   
     salida+="nodo"+(np) +" -> nodo"+(na)+";\n" ;
     numero++;
     }
     else if(Padre.getHijoDer()==actual){
-    salida+="nodo"+(na)+" [ label =\""+actual.getAdministrador().getCorreo()+"\"];\n";   
+    salida+="nodo"+(na)+" [ label =\""+actual.getAdministrador().getCorreo()+","+actual.getAdministrador().getContraseña()+"\"];\n";   
     salida+="nodo"+(np)+" -> nodo"+(na)+";\n" ;
     numero++;
     }

@@ -26,11 +26,48 @@ public class WSP1 {
     public static boolean estaciongeneralactivo=false;
     public static Ruta.Rutas rutas=new Ruta.Rutas();
 
-
+    @WebMethod()
+    public void ModificarAdmi(String correo,String contraseña,String correon,String contraseñan){
+    Administrador.Nodo e=WSP1.arboladministrador.Buscar(WSP1.arboladministrador.getRaiz(), correo, contraseña);
+    if(e!=null){
+    EliminarAdministrador(correo);
+    AgregarAdministrador(correon,contraseñan);
+    }
+    
+    }
+    
+    @WebMethod()
+    public void ModificarChofer(int id,int idn,String nombren,String apellidon,String contraseñan){
+    Chofer.Nodo e=WSP1.arbolchofer.Buscar(WSP1.arbolchofer.getRaiz(), id);
+    if(e!=null){
+    EliminarChofer(id);
+    AgregarChofer(idn,nombren,apellidon,contraseñan);
+    }
+    }
+    
+    @WebMethod()
+    public void ModificarEstacion(int id, String tipo,int idn,String nombren,String contraseñan){
+    if(tipo.equals("Estacion Clave")){
+    EstacionClave.Nodo e=WSP1.arbolestacionclave.Buscar(WSP1.arbolestacionclave.getRaiz(), id);
+    if(e!=null){
+    EliminarEstacionClave(id);
+    AgregarEstacionClave(idn,nombren,contraseñan);
+    }
+    }
+    if(tipo.equals("Estacion General")){
+    EstacionGeneral.Nodo e=WSP1.arbolestaciongeneral.Buscar(WSP1.arbolestaciongeneral.getRaiz(), id);
+    if(e!=null){
+    EliminarEstacionGeneral(id);
+    AgregarEstacionGeneral(idn,nombren,contraseñan);
+    }
+    }
+    }
+        
+    
     @WebMethod()
     public void GraficarBusesDeChofer(int id){
         
-    String tipo="Buses De Chofer: "+id;
+    String tipo="Buses De Chofer"+id;
 
     
    
@@ -92,7 +129,7 @@ try {
       
       String fileInputPath = "C:\\Users\\Francis\\Documents\\GitHub\\Proyecto1s22015_201314767\\EDDPr1AW\\web\\images\\lista.txt";
       //String fileInputPath="/media/francis/D844D27F44D26034/Users/Francis/Mis documentos/GitHub/Proyecto1s22015_201314767/EDDPr1AW/web/images/lista.txt";
-      String fileOutputPath = "C:\\Users\\Francis\\Documents\\GitHub\\Proyecto1s22015_201314767\\EDDPr1AW\\web\\images\\"+tipo+".jpg";
+      String fileOutputPath = "C:\\Users\\Francis\\Documents\\GitHub\\Proyecto1s22015_201314767\\EDDPr1AW\\web\\images\\jjjjj.jpg";
       //String fileOutputPath="/media/francis/D844D27F44D26034/Users/Francis/Mis documentos/GitHub/Proyecto1s22015_201314767/EDDPr1AW/web/images/"+tipo+".jpg";
       String tParam = "-Tjpg";
       String tOParam = "-o";

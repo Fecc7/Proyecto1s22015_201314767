@@ -306,18 +306,18 @@ public Nodo EquilibrarTrasEliminar(Nodo raiz,int id){
     if(na<0){na=na*(-1);}
     
     if(Padre==null){
-    salida+="nodo"+(na)+" [ label =\""+actual.getEstacionGeneral().getId()+"\"];\n";
+    salida+="nodo"+(na)+" [ label =\""+actual.getEstacionGeneral().getId()+","+actual.getEstacionGeneral().getNombre()+"\"];\n";
     numero++;
     }else{
     int np=Padre.getEstacionGeneral().getId();    
     if(np<0){np=np*(-1);}
     if(Padre.getHijoIzq()==actual){
-    salida+="nodo"+(na)+" [ label =\""+actual.getEstacionGeneral().getId()+"\"];\n";   
+    salida+="nodo"+(na)+" [ label =\""+actual.getEstacionGeneral().getId()+","+actual.getEstacionGeneral().getNombre()+"\"];\n";   
     salida+="nodo"+(np) +" -> nodo"+(na)+";\n" ;
     numero++;
     }
     else if(Padre.getHijoDer()==actual){
-    salida+="nodo"+(na)+" [ label =\""+actual.getEstacionGeneral().getId()+"\"];\n";   
+    salida+="nodo"+(na)+" [ label =\""+actual.getEstacionGeneral().getId()+","+actual.getEstacionGeneral().getNombre()+"\"];\n";   
     salida+="nodo"+(np)+" -> nodo"+(na)+";\n" ;
     numero++;
     }

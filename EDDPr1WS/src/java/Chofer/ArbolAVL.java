@@ -302,18 +302,18 @@ public Nodo EquilibrarTrasEliminar(Nodo raiz,int id){
     if(na<0){na=na*(-1);}
     
     if(Padre==null){
-    salida+="nodo"+(na)+" [ label =\""+actual.getChofer().getId()+"\"];\n";
+    salida+="nodo"+(na)+" [ label =\""+actual.getChofer().getId()+","+actual.getChofer().getNombre()+","+actual.getChofer().getContraseña()+"\"];\n";
     numero++;
     }else{
     int np=Padre.getChofer().getId();    
     if(np<0){np=np*(-1);}
     if(Padre.getHijoIzq()==actual){
-    salida+="nodo"+(na)+" [ label =\""+actual.getChofer().getId()+"\"];\n";   
+    salida+="nodo"+(na)+" [ label =\""+actual.getChofer().getId()+","+actual.getChofer().getNombre()+","+actual.getChofer().getContraseña()+"\"];\n";   
     salida+="nodo"+(np) +" -> nodo"+(na)+";\n" ;
     numero++;
     }
     else if(Padre.getHijoDer()==actual){
-    salida+="nodo"+(na)+" [ label =\""+actual.getChofer().getId()+"\"];\n";   
+    salida+="nodo"+(na)+" [ label =\""+actual.getChofer().getId()+","+actual.getChofer().getNombre()+","+actual.getChofer().getContraseña()+"\"];\n";   
     salida+="nodo"+(np)+" -> nodo"+(na)+";\n" ;
     numero++;
     }
