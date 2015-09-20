@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ArbolAdmi
-    Created on : 15-sep-2015, 12:19:07
+    Document   : CrearRuta
+    Created on : 18-sep-2015, 13:50:26
     Author     : Francis
 --%>
 
@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Arbol Administrador</title>
+                <title>Crear Ruta</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
@@ -23,7 +23,7 @@
 		<script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
     </head>
     <body>
-        <div class="extra">
+    <div class="extra">
             <div class="main">
                 <br><br><br>
 <!--==============================header=================================-->
@@ -32,42 +32,36 @@
                                 <nav>
 				<ul id="menu" class="menu">
 				<li class="active"><a href="Administrador.jsp">Home</a></li>
-				<li id="PestañaLogin"><a  href="Inicio.jsp">Cerrar Sesion</a></li>
+                                <li><a  href="AgregarEstaciones.jsp">Agregar Estaciones</a></li>
+                                <li><a  href="EliminarEstaciones.jsp">Eliminar Estaciones</a></li>
+                                <li><a  href="EliminarRuta.jsp">Eliminar Ruta</a></li>
+                                <li><a  href="ImagenRuta.jsp">Imagen Ruta</a></li>
+				<li><a  href="Inicio.jsp">Cerrar Sesion</a></li>
 				</ul>
                                 </nav>
                         </header>
         
+<br><br><br>
+<form action="CrearRuta.jsp">
+        <span class="text-form">Nombre: </span><input type="text" name="Id" value="" />
         <br>
-        
-        <br>
-        <script>
-
-function processFiles(files) {
-
-var file = files[0];
-
-var reader = new FileReader();
-
-reader.onload = function (e) {
-// Cuando éste evento se dispara, los datos están ya disponibles.
-// Se trata de copiarlos a una área <div> en la página.
-var output = document.getElementById("fileOutput");
-//fileOutput.style.backgroundImage = "url('" + e.target.result + "')";
-//fileOutput.style.backgroundImage = "url('" +"C:\\Users\\Francis\\Pictures\\Sumador_Restador_3_bits.png"+ "')";
-//alert(e.target.result);
-imagenaa.href=e.target.result;
-};
-reader.readAsDataURL(file);
-}
-
-</script>
-
-<input id="fileInput" type="file" size="50" onchange="processFiles(this.files)">
-<a id="imagenaa" href="images/ArbolAdministrador.jpg" target="_blank" onclick="window.open(this.href, this.target, 'width=500, height=500'); return false;">Ver Imagen</a>
-        
-        
-    
-    </div></div>        
+        <input type="submit" value="Agregar" />
+            <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	ws.WSP1_Service service = new ws.WSP1_Service();
+	ws.WSP1 port = service.getWSP1Port();
+	 // TODO initialize WS operation arguments here
+	java.lang.String arg0 = request.getParameter("Id");
+        if(arg0!=null){
+	port.agregarRuta(arg0);}
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+</form>
+            </div></div>    
 
 
     </body>

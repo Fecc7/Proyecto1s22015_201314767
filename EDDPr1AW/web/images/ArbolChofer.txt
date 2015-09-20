@@ -1,4 +1,21 @@
 digraph grafica{
 rankdir=TB;
-node [shape = record, style=filled, fillcolor=seashell2];
+node [shape = record, style=filled, fillcolor=seashell2];nodo15 [ label ="15"];
+nodo13 [ label ="13"];
+nodo15 -> nodo13;
+nodo12 [ label ="12"];
+nodo13 -> nodo12;
+nodo14 [ label ="14"];
+nodo13 -> nodo14;
+nodo17 [ label ="17"];
+nodo15 -> nodo17;
+nodo16 [ label ="16"];
+nodo17 -> nodo16;
+nodo19 [ label ="19"];
+nodo17 -> nodo19;
+nodo18 [ label ="18"];
+nodo19 -> nodo18;
+nodo20 [ label ="20"];
+nodo19 -> nodo20;
+
 }

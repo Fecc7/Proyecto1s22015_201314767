@@ -4,6 +4,36 @@
 <xsd:import namespace="http://WS/" schemaLocation="http://localhost:8080/EDDPr1WS/WSP1?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="EliminarBus">
+<part name="parameters" element="tns:EliminarBus"/>
+</message>
+<message name="EliminarBusResponse">
+<part name="parameters" element="tns:EliminarBusResponse"/>
+</message>
+<message name="AgregarRuta">
+<part name="parameters" element="tns:AgregarRuta"/>
+</message>
+<message name="AgregarRutaResponse">
+<part name="parameters" element="tns:AgregarRutaResponse"/>
+</message>
+<message name="EliminarRuta">
+<part name="parameters" element="tns:EliminarRuta"/>
+</message>
+<message name="EliminarRutaResponse">
+<part name="parameters" element="tns:EliminarRutaResponse"/>
+</message>
+<message name="GraficarRuta">
+<part name="parameters" element="tns:GraficarRuta"/>
+</message>
+<message name="GraficarRutaResponse">
+<part name="parameters" element="tns:GraficarRutaResponse"/>
+</message>
+<message name="Asignar">
+<part name="parameters" element="tns:Asignar"/>
+</message>
+<message name="AsignarResponse">
+<part name="parameters" element="tns:AsignarResponse"/>
+</message>
 <message name="UsuarioAdministradorActivo">
 <part name="parameters" element="tns:UsuarioAdministradorActivo"/>
 </message>
@@ -76,6 +106,24 @@
 <message name="EliminarEstacionGeneralResponse">
 <part name="parameters" element="tns:EliminarEstacionGeneralResponse"/>
 </message>
+<message name="DibujarArboles">
+<part name="parameters" element="tns:DibujarArboles"/>
+</message>
+<message name="DibujarArbolesResponse">
+<part name="parameters" element="tns:DibujarArbolesResponse"/>
+</message>
+<message name="AgregarEstacionRuta">
+<part name="parameters" element="tns:AgregarEstacionRuta"/>
+</message>
+<message name="AgregarEstacionRutaResponse">
+<part name="parameters" element="tns:AgregarEstacionRutaResponse"/>
+</message>
+<message name="EliminarEstacionRuta">
+<part name="parameters" element="tns:EliminarEstacionRuta"/>
+</message>
+<message name="EliminarEstacionRutaResponse">
+<part name="parameters" element="tns:EliminarEstacionRutaResponse"/>
+</message>
 <message name="AgregarBus">
 <part name="parameters" element="tns:AgregarBus"/>
 </message>
@@ -112,19 +160,27 @@
 <message name="EliminarChoferResponse">
 <part name="parameters" element="tns:EliminarChoferResponse"/>
 </message>
-<message name="DibujarArboles">
-<part name="parameters" element="tns:DibujarArboles"/>
-</message>
-<message name="DibujarArbolesResponse">
-<part name="parameters" element="tns:DibujarArbolesResponse"/>
-</message>
-<message name="EliminarBus">
-<part name="parameters" element="tns:EliminarBus"/>
-</message>
-<message name="EliminarBusResponse">
-<part name="parameters" element="tns:EliminarBusResponse"/>
-</message>
 <portType name="WSP1">
+<operation name="EliminarBus">
+<input wsam:Action="http://WS/WSP1/EliminarBusRequest" message="tns:EliminarBus"/>
+<output wsam:Action="http://WS/WSP1/EliminarBusResponse" message="tns:EliminarBusResponse"/>
+</operation>
+<operation name="AgregarRuta">
+<input wsam:Action="http://WS/WSP1/AgregarRutaRequest" message="tns:AgregarRuta"/>
+<output wsam:Action="http://WS/WSP1/AgregarRutaResponse" message="tns:AgregarRutaResponse"/>
+</operation>
+<operation name="EliminarRuta">
+<input wsam:Action="http://WS/WSP1/EliminarRutaRequest" message="tns:EliminarRuta"/>
+<output wsam:Action="http://WS/WSP1/EliminarRutaResponse" message="tns:EliminarRutaResponse"/>
+</operation>
+<operation name="GraficarRuta">
+<input wsam:Action="http://WS/WSP1/GraficarRutaRequest" message="tns:GraficarRuta"/>
+<output wsam:Action="http://WS/WSP1/GraficarRutaResponse" message="tns:GraficarRutaResponse"/>
+</operation>
+<operation name="Asignar">
+<input wsam:Action="http://WS/WSP1/AsignarRequest" message="tns:Asignar"/>
+<output wsam:Action="http://WS/WSP1/AsignarResponse" message="tns:AsignarResponse"/>
+</operation>
 <operation name="UsuarioAdministradorActivo">
 <input wsam:Action="http://WS/WSP1/UsuarioAdministradorActivoRequest" message="tns:UsuarioAdministradorActivo"/>
 <output wsam:Action="http://WS/WSP1/UsuarioAdministradorActivoResponse" message="tns:UsuarioAdministradorActivoResponse"/>
@@ -173,6 +229,18 @@
 <input wsam:Action="http://WS/WSP1/EliminarEstacionGeneralRequest" message="tns:EliminarEstacionGeneral"/>
 <output wsam:Action="http://WS/WSP1/EliminarEstacionGeneralResponse" message="tns:EliminarEstacionGeneralResponse"/>
 </operation>
+<operation name="DibujarArboles">
+<input wsam:Action="http://WS/WSP1/DibujarArbolesRequest" message="tns:DibujarArboles"/>
+<output wsam:Action="http://WS/WSP1/DibujarArbolesResponse" message="tns:DibujarArbolesResponse"/>
+</operation>
+<operation name="AgregarEstacionRuta">
+<input wsam:Action="http://WS/WSP1/AgregarEstacionRutaRequest" message="tns:AgregarEstacionRuta"/>
+<output wsam:Action="http://WS/WSP1/AgregarEstacionRutaResponse" message="tns:AgregarEstacionRutaResponse"/>
+</operation>
+<operation name="EliminarEstacionRuta">
+<input wsam:Action="http://WS/WSP1/EliminarEstacionRutaRequest" message="tns:EliminarEstacionRuta"/>
+<output wsam:Action="http://WS/WSP1/EliminarEstacionRutaResponse" message="tns:EliminarEstacionRutaResponse"/>
+</operation>
 <operation name="AgregarBus">
 <input wsam:Action="http://WS/WSP1/AgregarBusRequest" message="tns:AgregarBus"/>
 <output wsam:Action="http://WS/WSP1/AgregarBusResponse" message="tns:AgregarBusResponse"/>
@@ -197,17 +265,54 @@
 <input wsam:Action="http://WS/WSP1/EliminarChoferRequest" message="tns:EliminarChofer"/>
 <output wsam:Action="http://WS/WSP1/EliminarChoferResponse" message="tns:EliminarChoferResponse"/>
 </operation>
-<operation name="DibujarArboles">
-<input wsam:Action="http://WS/WSP1/DibujarArbolesRequest" message="tns:DibujarArboles"/>
-<output wsam:Action="http://WS/WSP1/DibujarArbolesResponse" message="tns:DibujarArbolesResponse"/>
-</operation>
-<operation name="EliminarBus">
-<input wsam:Action="http://WS/WSP1/EliminarBusRequest" message="tns:EliminarBus"/>
-<output wsam:Action="http://WS/WSP1/EliminarBusResponse" message="tns:EliminarBusResponse"/>
-</operation>
 </portType>
 <binding name="WSP1PortBinding" type="tns:WSP1">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="EliminarBus">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AgregarRuta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="EliminarRuta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GraficarRuta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="Asignar">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="UsuarioAdministradorActivo">
 <soap:operation soapAction=""/>
 <input>
@@ -316,6 +421,33 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="DibujarArboles">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AgregarEstacionRuta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="EliminarEstacionRuta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="AgregarBus">
 <soap:operation soapAction=""/>
 <input>
@@ -362,24 +494,6 @@
 </output>
 </operation>
 <operation name="EliminarChofer">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="DibujarArboles">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="EliminarBus">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

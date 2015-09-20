@@ -39,14 +39,30 @@
                         <form action="ArbolEstacion.jsp">
         <br>
         <br>
-        <h1>Estaciones Clave</h1>
-        <br>
-        <img src="images/ArbolEstacionClave.jpg" alt="ArbolEstacionClave"/>
-        <br>
-        <br>
-        <h1>Estaciones Generales</h1>
-        <br>
-        <img src="images/ArbolEstacionGeneral.jpg" alt="ArbolEstacionGeneral"/>
+              <script>
+
+function processFiles(files) {
+
+var file = files[0];
+
+var reader = new FileReader();
+
+reader.onload = function (e) {
+// Cuando éste evento se dispara, los datos están ya disponibles.
+// Se trata de copiarlos a una área <div> en la página.
+var output = document.getElementById("fileOutput");
+//fileOutput.style.backgroundImage = "url('" + e.target.result + "')";
+//fileOutput.style.backgroundImage = "url('" +"C:\\Users\\Francis\\Pictures\\Sumador_Restador_3_bits.png"+ "')";
+//alert(e.target.result);
+imagenaa.href=e.target.result;
+};
+reader.readAsDataURL(file);
+}
+
+</script>
+
+<input id="fileInput" type="file" size="50" onchange="processFiles(this.files)">
+<a id="imagenaa" href="images/ArbolAdministrador.jpg" target="_blank" onclick="window.open(this.href, this.target, 'width=500, height=500'); return false;">Ver Imagen</a>
         </form>
     </div></div>
         

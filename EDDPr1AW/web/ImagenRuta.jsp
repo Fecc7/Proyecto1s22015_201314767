@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ArbolAdmi
-    Created on : 15-sep-2015, 12:19:07
+    Document   : ImagenRuta
+    Created on : 18-sep-2015, 17:59:03
     Author     : Francis
 --%>
 
@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Arbol Administrador</title>
+                <title>Imagen Ruta</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
@@ -32,15 +32,36 @@
                                 <nav>
 				<ul id="menu" class="menu">
 				<li class="active"><a href="Administrador.jsp">Home</a></li>
-				<li id="PestañaLogin"><a  href="Inicio.jsp">Cerrar Sesion</a></li>
+                                <li><a  href="AgregarEstaciones.jsp">Agregar Estaciones</a></li>
+                                <li><a  href="EliminarEstaciones.jsp">Eliminar Estaciones</a></li>
+                                <li><a  href="EliminarRuta.jsp">Eliminar Ruta</a></li>
+                                <li><a href="CrearRuta.jsp">Crear Ruta</a></li>
+				<li><a  href="Inicio.jsp">Cerrar Sesion</a></li>
 				</ul>
                                 </nav>
                         </header>
-        
-        <br>
-        
-        <br>
-        <script>
+<br><br><br>
+<form action="ImagenRuta.jsp">
+    <input type="text" name="Nombre" value="" /><input type="submit" value="Crear Imagen" />
+        <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	ws.WSP1_Service service = new ws.WSP1_Service();
+	ws.WSP1 port = service.getWSP1Port();
+	 // TODO initialize WS operation arguments here
+	
+        java.lang.String arg0 = request.getParameter("Nombre");
+	if(arg0!=null){
+        port.graficarRuta(arg0);}
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
+</form>
+<br><br><br>
+<script>
 
 function processFiles(files) {
 
@@ -64,11 +85,6 @@ reader.readAsDataURL(file);
 
 <input id="fileInput" type="file" size="50" onchange="processFiles(this.files)">
 <a id="imagenaa" href="images/ArbolAdministrador.jpg" target="_blank" onclick="window.open(this.href, this.target, 'width=500, height=500'); return false;">Ver Imagen</a>
-        
-        
-    
-    </div></div>        
-
-
+            </div></div>
     </body>
 </html>

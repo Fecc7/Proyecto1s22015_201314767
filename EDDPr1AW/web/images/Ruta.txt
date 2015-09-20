@@ -1,0 +1,13 @@
+digraph grafica { 
+ 
+rankdir=TB; 
+ 
+label= "ruta1"  
+nodesep=0.2 
+node [shape=record];
+
+subgraph g{
+node0[label="<f0> 0|110"];
+}rank=same subgraph d{ 
+ }
+}

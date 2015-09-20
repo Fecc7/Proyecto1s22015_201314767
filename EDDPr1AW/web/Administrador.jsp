@@ -35,40 +35,58 @@
 							<li id="PestañaLogin"><a  href="Inicio.jsp">Cerrar Sesion</a></li>
 						</ul>
                                         </nav>
-                                            <form action="Administrador.jsp">
-                                            <div class="wrapper p4">
-						<ul class="list-services">
-                                			<li><a href="CrearAdmi.jsp">Crear Administrador</a></li>
-							<li><a href="CrearEstacion.jsp">Crear Estacion</a></li>
-							<li><a href="CrearChofer.jsp">Crear Chofer</a></li>
-                                                        <li><a href="CrearBus.jsp">Crear Bus</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="wrapper p4">
-						<ul class="list-services">
-                                			<li><a href="EliminarAdmi.jsp">Eliminar Administrador</a></li>
-							<li><a href="EliminarEstacion.jsp">Eliminar Estacion</a></li>
-							<li><a href="EliminarChofer.jsp">Eliminar Chofer</a></li>
-                                                        <li><a href="EliminarBus.jsp">Eliminar Bus</a></li>
+                                        <br>
+                                        <span class="text-form">Crear</span>
+                                        <br>
+                                        <nav>
+						<ul id="menu" class="menu">
+							<li><a href="CrearAdmi.jsp">Administrador</a></li>
+							<li><a href="CrearEstacion.jsp">Estacion</a></li>
+							<li><a href="CrearChofer.jsp">Chofer</a></li>
+                                                        <li><a href="CrearBus.jsp">Bus</a></li>
+                                                        <li><a href="CrearRuta.jsp">Ruta</a></li>
 						</ul>
-                                            </div> 
-                                            <div class="wrapper p4">
-						<ul class="list-services">
-                                                        <li><a href="ModificarAdmi.jsp">Modificar Administrador</a></li>
-							<li><a href="ModificarEstacion.jsp">Modificar Estacion</a></li>
-							<li><a href="ModificarChofer.jsp">Modificar Chofer</a></li>
-                                                        <li><a href="ModificarBus.jsp">Modificar Bus</a></li>
+                                        </nav>
+                                        <br>
+                                        <span class="text-form">Eliminar</span>
+                                        <br>
+                                        <nav>
+						<ul id="menu" class="menu">
+                                                        <li><a href="EliminarAdmi.jsp">Eliminar Elemento</a></li>
 						</ul>
-                                            </div>
-   
-                                            <div class="wrapper p4">
-						<ul class="list-services">
-                                                        <li><a href="ArbolAdmi.jsp">Arbol Administrador</a></li>
-							<li><a href="ArbolEstacion.jsp">Arbol Estacion</a></li>
-							<li><a href="ArbolChofer.jsp">Arbol Chofer</a></li>
-                                                        <li><a href="ArbolBus.jsp">Arbol Bus</a></li>
+                                        </nav>
+                                        <br>
+                                        <span class="text-form">Modificar</span>
+                                        <br>
+                                        <nav>
+						<ul id="menu" class="menu">
+                                                        <li><a href="ModificarAdmi.jsp">Administrador</a></li>
+							<li><a href="ModificarEstacion.jsp">Estacion</a></li>
+							<li><a href="ModificarChofer.jsp">Chofer</a></li>
+                                                        <li><a href="ModificarBus.jsp">Bus</a></li>
 						</ul>
-                                            </div>    
+                                        </nav>
+                                        <br>
+                                        <span class="text-form">Imagen Arbol</span>
+                                        <br>                  
+    <%
+    try {
+	ws.WSP1_Service service = new ws.WSP1_Service();
+	ws.WSP1 port = service.getWSP1Port();
+	port.dibujarArboles();
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+                                        <nav>
+						<ul id="menu" class="menu">
+                                                        <li><a href="ArbolAdmi.jsp">Administrador</a></li>
+							<li><a href="ArbolEstacion.jsp">Estacion</a></li>
+							<li><a href="ArbolChofer.jsp">Chofer</a></li>
+                                                        <li><a href="ArbolBus.jsp">Bus</a></li>
+						</ul>
+                                        </nav>
+                                            <form action="Administrador.jsp">   
                                             <div class="wrapper p4">
 						<ul class="list-services">
                                                         <li><input class="button" type="submit" value="Cargar Archivo" name="Agregar" /></li>
